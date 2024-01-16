@@ -1,0 +1,61 @@
+.my-orders {
+  margin-top: 80px;
+  padding: 30px 100px;
+  min-height: 70vh;
+  overflow-x: auto;
+}
+.my-orders .my-orders-h1{
+ 
+font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.my-orders table {
+  border-collapse: collapse;
+  background-color: white;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+}
+
+.my-orders th,
+td {
+  text-align: left;
+  font-size: 12px;
+  padding: 7px 10px;
+}
+
+.my-orders th {
+  background-color: var(--green);
+  color: white;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.info {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.delivered {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.processing {
+  background-color: gray;
+  color: #fff;
+  cursor: pointer;
+}
+@media screen and (max-width:726px) {
+  .my-orders{
+    padding: 30px 10px;
+  }
+}

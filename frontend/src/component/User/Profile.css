@@ -1,0 +1,84 @@
+.profileContainer{
+    margin-top: 100px;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    top: 0%;
+    left: 0%;   
+    max-width: 100%;
+    background-color: #fff;
+}
+.profileContainer > div{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.profileContainer > div:first-child > h1{
+    color: rgba(0, 0, 0, 0.555);
+    font: 500 2rem "Roboto";
+    /* transform: translateX(-10vmax) translateY(-2vmax); */
+}
+.profileContainer > div:first-child > h3{
+    font-weight: 500;
+}
+.profileContainer > div:first-child > a{
+    border: none;
+    background-color: var(--green);
+    font: 400 15px "Roboto";
+    color: white;
+    text-decoration: none;
+    padding: 3px 80px;
+    text-align: center;
+    transition: all 0.5s;
+}
+.profileContainer > div:first-child > a:hover{
+    background-color: var(--light-green);
+}
+.profileContainer > div:last-child {
+    align-items: flex-start;
+    
+}
+.profileContainer > div:last-child > div > h4{
+    color: #000;
+    font: 400 20px "Roboto" ;
+}
+.profileContainer > div:last-child > div > p{
+    color: rgba(51, 51, 51, 0.853);
+    font: 400 10px ;
+    margin: 10px;
+}
+.profileContainer > div:last-child > div:last-child {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.profileContainer > div:last-child > div:last-child a{
+    border: none;
+    background-color: rgba(68,68,68);
+    font: 400 20px "Roboto";
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.5s;
+    margin: 20px 0;
+}
+@media screen and (max-width:768px){
+    .profileContainer{
+        flex-direction: column;
+        padding: 0 6%;
+    }
+    .profileContainer> div:first-child {
+        height: 160px;
+    }
+   
+    .profileContainer> div:first-child > h1{
+        font: 500 2rem "Roboto";
+        
+    }
+}

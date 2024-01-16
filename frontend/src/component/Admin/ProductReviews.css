@@ -1,0 +1,50 @@
+.productReviewsContainer{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ddd;
+    border-left: 1px solid rgba(0,0,0,0.158);
+    height: 100vh;
+   overflow-x: auto;
+   padding: 0 15px;
+}
+.productReviewsForm{
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto; 
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+}
+.productReviewsFormHeading{
+    font: 300 2rem "Roboto";
+    text-align: center ;
+}
+.productReviewsForm > div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin: 2rem;
+}
+.productReviewsForm >div>input{
+    padding: 10px 40px;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    outline: none;
+    
+}
+.productReviewsForm > div > svg{
+    position: absolute;
+    color: rgba(0, 0, 0, 0.493);
+    transform:  translateX(10px);
+    font-size: 30px;
+}
+.productReviewsForm > button{
+    cursor: pointer;
+}

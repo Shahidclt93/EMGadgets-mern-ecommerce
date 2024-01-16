@@ -1,0 +1,91 @@
+
+.footer{
+    background: var(--footer-blue);
+    color: var(--footer-grey);
+    padding: 2rem 9%;
+}
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+    gap: 1.5rem;
+}
+.footer .box-container .box h3{
+    font-size: 25px;
+    font-weight: 300;
+}
+.footer .box{
+    display: flex;
+    flex-direction: column;
+}
+.footer a{
+    color: var(--footer-grey);
+    font-size: 17px;
+    font-weight: 300;
+    background: transparent;
+    line-height: 2.5rem;
+}
+.footer a:hover{
+    color: var(--green-light);
+    
+}
+.line{
+    border-bottom: 1px solid var(--line);
+    padding: 20px 0; 
+    width: 80%;
+    margin: auto;
+}
+.subs-container .share a{
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    border: 1px solid var(--line);
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.subs-container .share a:hover{
+    background-color: var(--footer-grey);
+    color: var(--footer-blue);
+}
+.subs-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.subs-form input,button{
+    padding: 6px 16px;
+    font-size: 16px;
+}
+.subs-form input{
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+}
+.subs-form .btn{
+    background-color: var(--green);
+    color: var(--footer-grey);
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+    cursor: pointer;
+}
+.subs-form .btn:hover{
+    background-color: var(--green-light);
+}
+.credit{
+    margin-top: 40px;
+    text-align: center;
+}
+
+@media (max-width:769px){
+    .footer{
+        padding: 2rem 4%;
+    }
+    
+    .subs-container{
+        display: block;
+        text-align: center;
+    }
+    .subs-container .share{
+        margin-bottom: 25px;
+    }
+}

@@ -1,0 +1,111 @@
+.cartPage {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 70px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
+  border-radius: 0.4rem;
+}
+.empty-cart{
+  height: 50vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartHeader {
+  background-color: var(--green);
+  width: 100%;
+  /* margin: auto; */
+  color: #fff;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  font: 300 1rem "Roboto";
+  border-radius: 0.4rem;
+}
+.cartHeader > p {
+  margin: 10px;
+}
+.cartHeader > p:last-child {
+  text-align: end;
+}
+.cartContainer {
+  width: 100%;
+  /* margin: auto; */
+  border-bottom: 1px solid rgb(231, 231, 231);
+
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+.cartInput {
+  padding-top: 40px;
+}
+.cartSubtotal {
+  display: flex;
+  padding-top: 40px;
+  padding-right: 15px;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.753);
+}
+
+.cartGrossProfit {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+}
+.cartGrossProfitBox {
+  margin: 20px 40px;
+  display: flex;
+  padding: 5px 5px;
+  justify-content: flex-end;
+}
+.cartGrossProfitBox .Tprice {
+  margin-left: 50px;
+}
+.checkOutBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.checkOutBtn .Btn1 {
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 0.4rem;
+  font: 400 15px "Roboto";
+  margin-right: 40px;
+  cursor: pointer;
+  margin-top: -20px;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 600px) {
+  .cartPage {
+    width: 97%;
+  }
+  .cartContainer {
+    width: 90%;
+  }
+
+  .cartSubtotal {
+    position: relative;
+  }
+  p.cartSubtotal {
+    position: absolute;
+    right: 0px;
+  }
+  .cartGrossProfitBox {
+    margin: 20px 20px;
+  }
+  .cartGrossProfit {
+    display: grid;
+    grid-template-columns: 0fr 2fr;
+  }
+
+  .checkOutBtn > button {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
