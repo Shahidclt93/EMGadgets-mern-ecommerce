@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-// const URI =
-//   "mongodb+srv://shahidemgadge:AFYbVeLy4k7iJjMd@cluster0.fmxani8.mongodb.net/your-database-name";
 
 const connectDatabase = () => {
  mongoose.connect(process.env.DB_URI)
