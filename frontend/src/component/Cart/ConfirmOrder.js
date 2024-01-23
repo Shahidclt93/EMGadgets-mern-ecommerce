@@ -7,7 +7,7 @@ import { useNavigate, Link, Navigate } from "react-router-dom";
 import { Typography } from "@mui/material";
 
 const ConfirmOrder = () => {
-    const navigate= useNavigate()
+  const navigate = useNavigate();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
@@ -20,17 +20,17 @@ const ConfirmOrder = () => {
   const totalPrice = subtotal + tax + shippingCharges;
   const address = `${shippingInfo.address},${shippingInfo.city},${shippingInfo.state},${shippingInfo.pinCode},${shippingInfo.country} `;
 
-  const proceedToPayment = () =>{
-      const data = {
-          subtotal,
-          shippingCharges,
-          tax,
-          totalPrice
-      }
+  const proceedToPayment = () => {
+    const data = {
+      subtotal,
+      shippingCharges,
+      tax,
+      totalPrice,
+    };
 
-      sessionStorage.setItem("orderInfo", JSON.stringify(data));
-      navigate("/process/payment")
-  }
+    sessionStorage.setItem("orderInfo", JSON.stringify(data));
+    navigate("/process/payment");
+  };
   return (
     <Fragment>
       <MetaData title="Confirm Order" />
@@ -96,8 +96,7 @@ const ConfirmOrder = () => {
               <span>${totalPrice}</span>
             </div>
             <div className="proceedBtnContainer">
-
-            <button onClick={proceedToPayment}>Proceed To Payment</button>
+              <button onClick={proceedToPayment}>Proceed To Payment</button>
             </div>
           </div>
         </div>

@@ -4,7 +4,10 @@ import {
   SAVE_SHIPPING_INFO,
 } from "../constants/CartContants";
 
-export const cartReducer = (state = { cartItems: [],shippingItems:{} }, action) => {
+export const cartReducer = (
+  state = { cartItems: [], shippingItems: {} },
+  action
+) => {
   switch (action.type) {
     case ADD_TO_CART:
       const item = action.payload;

@@ -8,7 +8,7 @@ const CartItemCard = ({ item, removeItem }) => {
       <img src={item.image} alt="item-img" />
       <div>
         <Link to={`/product/${item.product}`}>{item.name}</Link>
-        <span>{`price: $${item.price}`}</span>
+        <span>{`price: ₹${item.price}`}</span>
         <p onClick={() => removeItem(item.product)}>remove Item</p>
       </div>
     </div>

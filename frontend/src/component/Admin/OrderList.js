@@ -1,28 +1,28 @@
-import React,{Fragment,useEffect} from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import React, { Fragment, useEffect } from "react";
+import { DataGrid } from "@mui/x-data-grid";
 import { useSelector, useDispatch } from "react-redux";
-
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { Button } from "@mui/material";
 import MetaData from "../layout/MetaData";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SideBar from "./Sidebar";
 import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
-import "./ProductList.css"
-import { getAllOrders,deleteOrder,clearErrors } from "../../actions/orderAction";
+import "./ProductList.css";
+import {
+  getAllOrders,
+  deleteOrder,
+  clearErrors,
+} from "../../actions/orderAction";
 
 const OrderList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
 
   const alert = useAlert();
-  const {orders,error} = useSelector((state) => state.allOrders);
-  const { error: deleteError, isDeleted } = useSelector(
-    (state) => state.order
-  );
+  const { orders, error } = useSelector((state) => state.allOrders);
+  const { error: deleteError, isDeleted } = useSelector((state) => state.order);
   const deleteOrderHandler = (id) => {
     dispatch(deleteOrder(id));
   };
@@ -45,12 +45,11 @@ const OrderList = () => {
     }
 
     dispatch(getAllOrders());
-  }, [dispatch,error,alert,deleteError,navigate,isDeleted]);
+  }, [dispatch, error, alert, deleteError, navigate, isDeleted]);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
 
- 
     {
       field: "itemsQty",
       headerName: "Items Qty",
@@ -64,9 +63,7 @@ const OrderList = () => {
       minWidth: 150,
       flex: 0.5,
       cellClassName: (params) => {
-        return (params.value) === "Delivered"
-        ? "greenColor"
-          : "redColor";
+        return params.value === "Delivered" ? "greenColor" : "redColor";
       },
     },
     {
@@ -91,11 +88,7 @@ const OrderList = () => {
               <EditIcon />
             </Link>
 
-            <Button
-              onClick={() =>
-                deleteOrderHandler(params.id)
-              }
-            >
+            <Button onClick={() => deleteOrderHandler(params.id)}>
               <DeleteIcon />
             </Button>
           </Fragment>
@@ -104,28 +97,25 @@ const OrderList = () => {
     },
   ];
 
-
   const rows = [];
-  orders && orders.forEach((item) => {
+  orders &&
+    orders.forEach((item) => {
       rows.push({
         id: item._id,
         itemsQty: item.orderItems.length,
         amount: item.totalPrice,
         status: item.orderStatus,
-        
       });
     });
 
-  return(
+  return (
     <Fragment>
       <MetaData title={`All Orders - Admin`} />
 
-      <div className="dashboard" >
-       
+      <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL ORDERS</h1>
-    
 
           <DataGrid
             rows={rows}
@@ -138,6 +128,6 @@ const OrderList = () => {
         </div>
       </div>
     </Fragment>
-  )
+  );
 };
 export default OrderList;

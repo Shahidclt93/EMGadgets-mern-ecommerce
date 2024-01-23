@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import Loader from "../layout/Loader/Loader";
-import { useNavigate, Link, useLocation, } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 function LoginSignUp() {
   const dispatch = useDispatch();
@@ -35,7 +35,6 @@ function LoginSignUp() {
     e.preventDefault();
 
     dispatch(login(loginEmail, loginPassword));
-   
   };
   const registerSubmit = (e) => {
     if (password !== confirmPassword) {
@@ -59,13 +58,9 @@ function LoginSignUp() {
   const registerDataChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  
- 
 
-    const redirect = location.search ? location.search.split("=")[1] : "/account";
-  
-  
-  
+  const redirect = location.search ? location.search.split("=")[1] : "/account";
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -74,9 +69,7 @@ function LoginSignUp() {
     if (isAuthenticated) {
       navigate(redirect);
     }
-   
-    
-  }, [dispatch, error, redirect,navigate,alert, isAuthenticated]);
+  }, [dispatch, error, redirect, navigate, alert, isAuthenticated]);
 
   const toggleContainer = () => {
     setContainerActive(!containerActive);
@@ -88,7 +81,9 @@ function LoginSignUp() {
       ) : (
         <div className="register">
           <div className="sign-in-up">
-            <div className={`loginContainer ${containerActive ? "active" : ""}`}>
+            <div
+              className={`loginContainer ${containerActive ? "active" : ""}`}
+            >
               <div className="forms">
                 <div className="form login">
                   <span className="title">Login</span>
@@ -265,7 +260,7 @@ function LoginSignUp() {
                       <input type="submit" value="Register" />
                     </div>
                   </form>
-                  <div className="login-signup">
+                  <div className="back-to-login">
                     <span className="text">
                       Already a member?
                       <a
@@ -273,6 +268,7 @@ function LoginSignUp() {
                         className="text login-link"
                         onClick={() => toggleContainer()}
                       >
+                        {" "}
                         Login Now
                       </a>
                     </span>

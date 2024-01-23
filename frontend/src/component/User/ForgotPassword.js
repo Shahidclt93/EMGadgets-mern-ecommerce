@@ -3,28 +3,32 @@ import Loader from "../layout/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import MetaData from "../layout/MetaData";
-
 import { clearErrors, forgotPassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-import { useNavigate } from "react-router-dom";
-
-import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 
 const ForgotPassword = () => {
-  const navigate = useNavigate();
   const alert = useAlert();
   const dispatch = useDispatch();
 
-  const { user } = useSelector((state) => state.forgotPassword);
   const { error, message, loading } = useSelector((state) => state.profile);
 
   const [email, setEmail] = useState("");
-  const  emailForPass = {"email":email}
+  const emailForPass = { email: email };
 
   const forgotPasswordSubmit = (e) => {
     e.preventDefault();
-    dispatch(forgotPassword(emailForPass))
+    dispatch(forgotPassword(emailForPass));
   };
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+
+    if (message) {
+      alert.success(message);
+    }
+  }, [dispatch, error, alert, message]);
 
   return (
     <Fragment>

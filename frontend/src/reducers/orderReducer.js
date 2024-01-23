@@ -20,7 +20,6 @@ import {
   ORDER_DETAILS_REQUEST,
   ORDER_DETAILS_SUCCESS,
   ORDER_DETAILS_FAIL,
-  
 } from "../constants/orderConstant";
 
 export const newOrderReducer = (state = {}, action) => {
@@ -78,10 +77,10 @@ export const allOrdersReducer = (state = { orders: [] }, action) => {
       return state;
   }
 };
-export const ordersReducer = (state = { }, action) => {
+export const ordersReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_ORDER_REQUEST:
-      case DELETE_ORDER_REQUEST:
+    case DELETE_ORDER_REQUEST:
       return {
         ...state,
         loading: true,
@@ -101,22 +100,22 @@ export const ordersReducer = (state = { }, action) => {
       };
 
     case UPDATE_ORDER_FAIL:
-      case DELETE_ORDER_FAIL:
+    case DELETE_ORDER_FAIL:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-      case UPDATE_ORDER_RESET:
-        return{
-          loading:false,
-          isUpdated:action.payload
-        }
-      case DELETE_ORDER_RESET:
-        return{
-          loading:false,
-          isUpdated:action.payload
-        }
+    case UPDATE_ORDER_RESET:
+      return {
+        loading: false,
+        isUpdated: action.payload,
+      };
+    case DELETE_ORDER_RESET:
+      return {
+        loading: false,
+        isUpdated: action.payload,
+      };
     case CLEAR_ERRORS:
       return {
         ...state,

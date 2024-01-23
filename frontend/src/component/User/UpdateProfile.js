@@ -4,12 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import FaceIcon from "@mui/icons-material/Face";
 import MetaData from "../layout/MetaData";
-
-import {
-  clearErrors,
-  updateProfile,
-  loadUser,
-} from "../../actions/userAction";
+import { clearErrors, updateProfile, loadUser } from "../../actions/userAction";
 import { useAlert } from "react-alert";
 import { useNavigate } from "react-router-dom";
 

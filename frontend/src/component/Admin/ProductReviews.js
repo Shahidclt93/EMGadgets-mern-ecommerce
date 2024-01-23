@@ -6,11 +6,10 @@ import {
   getAllReveiws,
   deleteReviews,
 } from "../../actions/productAction";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { Button } from "@mui/material";
 import MetaData from "../layout/MetaData";
-import EditIcon from "@mui/icons-material/Edit";
 import StarIcon from "@mui/icons-material/Star";
 
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -106,7 +105,8 @@ const ProductReviews = () => {
   ];
 
   const rows = [];
-  reviews && reviews.forEach((item) => {
+  reviews &&
+    reviews.forEach((item) => {
       rows.push({
         id: item._id,
         rating: item.rating,
@@ -141,7 +141,6 @@ const ProductReviews = () => {
             <Button
               id="createProductBtn"
               type="submit"
-            
               disabled={
                 loading ? true : false || productId === "" ? true : false
               }

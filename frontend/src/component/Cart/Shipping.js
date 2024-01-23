@@ -26,23 +26,22 @@ const Shipping = () => {
   const [pinCode, setPinCode] = useState(ShippingInfo && ShippingInfo.pinCode);
   const [phoneNo, setPhoneNo] = useState(ShippingInfo && ShippingInfo.phoneNo);
 
-  const shippingSubmit = (e) =>{
-    e.preventDefault()
-    if(phoneNo.length < 10 || phoneNo.length > 10){
-      alert.error("Phone number should be 10 digit")
-      return
+  const shippingSubmit = (e) => {
+    e.preventDefault();
+    if (phoneNo.length < 10 || phoneNo.length > 10) {
+      alert.error("Phone number should be 10 digit");
+      return;
     }
     dispatch(
-      saveShippingInfo({address,city,state,country,pinCode,phoneNo})
-    )
-    navigate("/order/confirm")
-
-  }
+      saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
+    );
+    navigate("/order/confirm");
+  };
 
   return (
     <Fragment>
-      <MetaData title="Shipping Details"/>
-      <CheckOutSteps activeStep ={0} />
+      <MetaData title="Shipping Details" />
+      <CheckOutSteps activeStep={0} />
       <div className="shippingContainer">
         <div className="shippingBox">
           <h2 className="shippingHeading">Shipping Details</h2>

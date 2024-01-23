@@ -14,13 +14,29 @@ const Product = ({ product }) => {
   };
   return (
     <Link to={`/product/${product._id}`}>
-      <div className="product-card">
-        <img src={product.images[0].url} alt="" />
+      <div className="product-card ">
+        <div className="product-card-thumb">
+          <img src={product.images[0].url} alt="Product Thumbnail" />
+        </div>
+        <div className="product-card-details">
+          <div className="product-card-top">
+            <span className="product-card-category">{product.category}</span>
+            <ReactStars {...options} />
+          </div>
+          <h4>
+            <a href="#">{product.name}</a>
+          </h4>
 
-        <h4>{product.name}</h4>
+          <div className="product-card-bottom-details">
+            <div className="product-card-price">₹ {product.price}</div>
 
-        <ReactStars {...options} />
-        <p>₹{product.price}</p>
+            <a href="#" className="product-card-cart">
+              <i>
+                <ShoppingCartIcon />
+              </i>
+            </a>
+          </div>
+        </div>
       </div>
     </Link>
   );

@@ -1,8 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./NewProduct.css";
-import { clearErrors, updateProduct,getProductDetails} from "../../actions/productAction";
-import { useNavigate,useParams } from "react-router-dom";
+import {
+  clearErrors,
+  updateProduct,
+  getProductDetails,
+} from "../../actions/productAction";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { Button } from "@mui/material";
 import Sidebar from "./Sidebar";
@@ -19,52 +23,63 @@ const UpdateProduct = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
-  const params = useParams()
+  const params = useParams();
 
-  const { loading, error:updateError, isUpdated } = useSelector((state) => state.product);
-  const {error, product} = useSelector((state)=> state.productDetails)
+  const {
+    loading,
+    error: updateError,
+    isUpdated,
+  } = useSelector((state) => state.product);
+  const { error, product } = useSelector((state) => state.productDetails);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [stock, setStock] = useState(0);
-    const [oldImages, setOldImages] = useState([]);
+  const [oldImages, setOldImages] = useState([]);
 
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["Laptop", "watches", "smartphones", "gadgets", "camera"];
- 
-  const productId = params.id
+  const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
 
-  useEffect(()=>{
-      if(product && product._id !== productId){
-          dispatch(getProductDetails(productId))
-      }
-      else{
-          setName(product && product.name)
-          setDescription(product && product.description)
-          setPrice(product && product.price)
-          setCategory(product && product.category)
-          setStock(product && product.Stock)
-          setOldImages(product && product.images)
-      }
-      if (error) {
-        alert.error(error);
-        dispatch(clearErrors());
-      }
-      if (updateError) {
-        alert.error(updateError);
-        dispatch(clearErrors());
-      }
-      if (isUpdated) {
-        alert.success("Product updated successfully");
-        navigate("/admin/products");
-        dispatch({ type: UPDATE_PRODUCT_RESET });
-      }
-  }, [dispatch, alert, error, navigate, isUpdated,productId,product,updateError])
+  const productId = params.id;
 
+  useEffect(() => {
+    if (product && product._id !== productId) {
+      dispatch(getProductDetails(productId));
+    } else {
+      setName(product && product.name);
+      setDescription(product && product.description);
+      setPrice(product && product.price);
+      setCategory(product && product.category);
+      setStock(product && product.Stock);
+      setOldImages(product && product.images);
+    }
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+    if (updateError) {
+      alert.error(updateError);
+      dispatch(clearErrors());
+    }
+    if (isUpdated) {
+      alert.success("Product updated successfully");
+      navigate("/admin/products");
+      dispatch({ type: UPDATE_PRODUCT_RESET });
+    }
+  }, [
+    dispatch,
+    alert,
+    error,
+    navigate,
+    isUpdated,
+    productId,
+    product,
+    updateError,
+  ]);
 
   const updateSubmitHandler = (e) => {
     e.preventDefault();
@@ -79,13 +94,13 @@ const UpdateProduct = () => {
     images.forEach((image) => {
       myForm.append("images", image);
     });
-    dispatch(updateProduct(productId,myForm));
+    dispatch(updateProduct(productId, myForm));
   };
   const updateProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
     setImages([]);
     setImagesPreview([]);
-    setOldImages([])
+    setOldImages([]);
 
     files.forEach((file) => {
       const reader = new FileReader();
@@ -113,7 +128,7 @@ const UpdateProduct = () => {
           >
             <h1>Update Product</h1>
             <div>
-            <SpellcheckIcon />
+              <SpellcheckIcon />
               <input
                 type="text"
                 placeholder="Product Name"
@@ -123,7 +138,7 @@ const UpdateProduct = () => {
               />
             </div>
             <div>
-        <AttachMoneyIcon />
+              <AttachMoneyIcon />
               <input
                 type="number"
                 placeholder="Price"
@@ -133,9 +148,8 @@ const UpdateProduct = () => {
               />
             </div>
             <div>
-            
-               <DescriptionIcon />
-         
+              <DescriptionIcon />
+
               <textarea
                 type="number"
                 placeholder="Product description"
@@ -146,8 +160,11 @@ const UpdateProduct = () => {
               />
             </div>
             <div>
-             <AccountTreeIcon />
-              <select  value={category}  onChange={(e) => setCategory(e.target.value)}>
+              <AccountTreeIcon />
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
                 <option value="">Choose Category</option>
                 {categories.map((item) => (
                   <option key={item} value={item}>
@@ -157,10 +174,8 @@ const UpdateProduct = () => {
               </select>
             </div>
             <div>
-           
-
               <StorageIcon />
-          
+
               <input
                 type="number"
                 placeholder="Stock"
@@ -179,9 +194,10 @@ const UpdateProduct = () => {
               />
             </div>
             <div className="createProductFormImage">
-              {oldImages && oldImages.map((image, index) => (
-                <img key={index} src={image.url} alt="old product preivew" />
-              ))}
+              {oldImages &&
+                oldImages.map((image, index) => (
+                  <img key={index} src={image.url} alt="old product preivew" />
+                ))}
             </div>
             <div className="createProductFormImage">
               {imagesPreview.map((image, index) => (

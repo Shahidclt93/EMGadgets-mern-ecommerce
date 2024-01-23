@@ -1,7 +1,4 @@
 import axios from "axios";
-
-
-
 import {
   ALL_PRODUCTS_REQUEST,
   ALL_PRODUCTS_SUCCESS,
@@ -19,15 +16,12 @@ import {
   NEW_PRODUCT_REQUEST,
   NEW_PRODUCT_SUCCESS,
   NEW_PRODUCT_FAIL,
-  NEW_PRODUCT_RESET,
   DELETE_PRODUCT_REQUEST,
   DELETE_PRODUCT_SUCCESS,
   DELETE_PRODUCT_FAIL,
-  DELETE_PRODUCT_RESET,
   UPDATE_PRODUCT_REQUEST,
   UPDATE_PRODUCT_SUCCESS,
   UPDATE_PRODUCT_FAIL,
-  UPDATE_PRODUCT_RESET,
   ALL_REVIEW_REQUEST,
   ALL_REVIEW_SUCCESS,
   ALL_REVIEW_FAIL,
@@ -108,11 +102,7 @@ export const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_PRODUCT_REQUEST });
 
-  
-
-    const { data } = await axios.delete(
-      `/api/v1/admin/product/${id}`,
-    );
+    const { data } = await axios.delete(`/api/v1/admin/product/${id}`);
 
     dispatch({
       type: DELETE_PRODUCT_SUCCESS,
@@ -126,7 +116,7 @@ export const deleteProduct = (id) => async (dispatch) => {
   }
 };
 //Update product
-export const updateProduct = (id,productData) => async (dispatch) => {
+export const updateProduct = (id, productData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PRODUCT_REQUEST });
 
@@ -142,7 +132,7 @@ export const updateProduct = (id,productData) => async (dispatch) => {
 
     dispatch({
       type: UPDATE_PRODUCT_SUCCESS,
-      payload: data.success
+      payload: data.success,
     });
   } catch (error) {
     dispatch({
@@ -211,11 +201,13 @@ export const getAllReveiws = (id) => async (dispatch) => {
   }
 };
 //Delete reviews of a Product - Admin
-export const deleteReviews = (reviewId,productId) => async (dispatch) => {
+export const deleteReviews = (reviewId, productId) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_REVIEW_REQUEST });
 
-    const { data } = await axios.delete(`/api/v1/reviews?id=${reviewId}&productId=${productId}`);
+    const { data } = await axios.delete(
+      `/api/v1/reviews?id=${reviewId}&productId=${productId}`
+    );
 
     dispatch({
       type: DELETE_REVIEW_SUCCESS,

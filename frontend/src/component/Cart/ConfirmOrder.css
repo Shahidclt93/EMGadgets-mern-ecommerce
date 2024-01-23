@@ -98,7 +98,6 @@
 .orderSummary > div > div {
   display: flex;
   font-size: 1rem;
-  
 
   margin: 20px 0;
   margin-left: 20px;
@@ -135,7 +134,7 @@
   font-size: 1rem;
   font-weight: 400;
 }
-.orderSummary > .proceedBtnContainer > button:hover{
+.orderSummary > .proceedBtnContainer > button:hover {
   background-color: var(--green-light);
 }
 

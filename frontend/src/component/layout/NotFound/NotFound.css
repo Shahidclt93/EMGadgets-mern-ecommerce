@@ -1,45 +1,45 @@
 .PageNotFound {
-    margin: auto;
-    margin-top: 70px;
-    text-align: center;
-    padding: 10vmax;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .PageNotFound > svg {
-    font-size: 7vmax;
-    color: var(--green);
-  }
-  .PageNotFound > p {
-    font-size: 2vmax;
-  }
+  margin: auto;
+  margin-top: 70px;
+  text-align: center;
+  padding: 10vmax;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.PageNotFound > svg {
+  font-size: 7vmax;
+  color: var(--green);
+}
+.PageNotFound > p {
+  font-size: 22px;
+}
+.PageNotFound > a {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  border: none;
+  padding: 1vmax 3vmax;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  margin: 2vmax;
+}
+
+@media screen and (max-width: 600px) {
   .PageNotFound > a {
-    background-color: rgb(51, 51, 51);
-    color: white;
-    border: none;
-    padding: 1vmax 3vmax;
-    cursor: pointer;
-    font: 400 1vmax "Roboto";
-    text-decoration: none;
+    padding: 3vw 6vw;
+    font: 400 4vw "Roboto";
     margin: 2vmax;
   }
-  
-  @media screen and (max-width: 600px) {
-    .PageNotFound > a {
-      padding: 3vw 6vw;
-      font: 400 4vw "Roboto";
-      margin: 2vmax;
-    }
-  
-    .PageNotFound > svg {
-      font-size: 20vw;
-    }
-    .PageNotFound > p {
-      margin: 2vmax;
-      font-size: 5vw;
-    }
+
+  .PageNotFound > svg {
+    font-size: 20vw;
   }
-  
+  .PageNotFound > p {
+    margin: 2vmax;
+    font-size: 5vw;
+  }
+}

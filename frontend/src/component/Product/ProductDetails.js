@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState, useRef } from "react";
-import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -10,7 +9,6 @@ import {
 import { useParams } from "react-router-dom";
 import Loader from "../layout/Loader/Loader";
 import ReviewCard from "./ReviewCard";
-import ReactStars from "react-rating-stars-component";
 import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
 import ScrollToTop from "../layout/ScrollToTop";
@@ -35,10 +33,10 @@ const ProductDetails = () => {
 
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const [isActive, setIsActive] = useState(false);
+  const [isActiveReview, setIsActiveReview] = useState(false);
 
-  const toggleModal = () => {
-    setIsActive(!isActive);
+  const toggleReviewModal = () => {
+    setIsActiveReview(!isActiveReview);
   };
 
   useEffect(() => {
@@ -48,9 +46,6 @@ const ProductDetails = () => {
     }
   });
   const [slideIndex, setSlideIndex] = useState(1);
-  const [selectedColor, setSelectedColor] = useState(
-    product.colors && product.colors[0]
-  );
 
   function plusSlide(n) {
     setSlideIndex((prev) => prev + n);
@@ -99,7 +94,7 @@ const ProductDetails = () => {
     myForm.set("comment", comment);
     myForm.set("productId", id);
     dispatch(newReview(myForm));
-    setIsActive(false);
+    setIsActiveReview(false);
   };
 
   const options = {
@@ -107,7 +102,6 @@ const ProductDetails = () => {
     value: product.ratings,
     readOnly: true,
     precision: 0.5,
-
   };
 
   useEffect(() => {
@@ -124,7 +118,7 @@ const ProductDetails = () => {
       dispatch({ type: NEW_REVIEW_RESET });
     }
     dispatch(getProductDetails(id));
-  }, [dispatch, id, error, alert,reviewError,success]);
+  }, [dispatch, id, error, alert, reviewError, success]);
 
   return (
     <Fragment>
@@ -132,13 +126,20 @@ const ProductDetails = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={`${product.name} --- EmGadget`} />
+          <MetaData title={`${product.name} --- EMGadget`} />
           <ScrollToTop />
+          <span
+            className={isActiveReview ? "overlay-review" : ""}
+            onClick={toggleReviewModal}
+          ></span>
           <div className="product-container">
             <section className="product-details">
-              <div className="product-page-img">
-                {product.images &&
-                  product.images.map((item, i) => (
+              {product.images &&
+                product.images.map((item, i) => (
+                  <div className="product-page-img">
+                    <div className="numbertext">
+                      {i + 1} / {product.images.length}
+                    </div>
                     <div
                       key={i}
                       className="mySlides"
@@ -146,22 +147,16 @@ const ProductDetails = () => {
                         display: i + 1 === slideIndex ? "block" : "none",
                       }}
                     >
-                      <div className="numbertext">
-                        {i + 1} / {product.images.length}
-                      </div>
                       <img src={item.url} />
                     </div>
-                  ))}
-                <a href="#!" onClick={() => plusSlide(-1)} className="prev">
-                  &#10094;{" "}
-                </a>
-                <a href="#!" onClick={() => plusSlide(1)} className="next">
-                  &#10095;
-                </a>
+                    <a href="#!" onClick={() => plusSlide(-1)} className="prev">
+                      &#10094;{" "}
+                    </a>
+                    <a href="#!" onClick={() => plusSlide(1)} className="next">
+                      &#10095;
+                    </a>
 
-                <div className="slider-img">
-                  {product.images &&
-                    product.images.map((item, i) => (
+                    <div className="slider-img">
                       <div
                         key={i}
                         className={`slider-box ${
@@ -171,9 +166,10 @@ const ProductDetails = () => {
                       >
                         <img src={item.url} />
                       </div>
-                    ))}
-                </div>
-              </div>
+                    </div>
+                  </div>
+                ))}
+
               <div className="product-page-details">
                 <strong>{product.name}</strong>
                 <p className="product-category">{product.category}</p>
@@ -184,22 +180,9 @@ const ProductDetails = () => {
                   </span>
                 </div>
 
-                <p className="product-price">${product.price}</p>
+                <p className="product-price">₹{product.price}</p>
                 <p className="small-desc">{product.description}</p>
 
-                <div className="product-options">
-                  <span>Colors</span>
-                  {product.colors &&
-                    product.colors.map((color) => (
-                      <div key={color}>
-                        <button
-                          style={{ background: color }}
-                          className={color === selectedColor ? "active" : ""}
-                          onClick={() => setSelectedColor(color)}
-                        />
-                      </div>
-                    ))}
-                </div>
                 <div class="quantity">
                   <button
                     class="plus-btn"
@@ -238,15 +221,16 @@ const ProductDetails = () => {
                     {product.Stock < 1 ? "OutOfStock" : "InStock"}
                   </b>
                 </p>
-                <button className="review-btn" onClick={toggleModal}>
+                <button className="review-btn" onClick={toggleReviewModal}>
                   add review
                 </button>
               </div>
             </section>
-            <section className={`review-post ${isActive ? "active" : ""}`}>
+            <section
+              className={`review-post ${isActiveReview ? "active" : ""}`}
+            >
               <div className="review-modalBox ">
                 <h2>Post Review</h2>
-                {/* <span className="overlay" onClick={toggleModal}></span> */}
                 <Rating
                   value={rating}
                   onChange={(e) => setRating(e.target.value)}
@@ -261,7 +245,7 @@ const ProductDetails = () => {
                   <button className="close-btn" onClick={reviewSubmitHandler}>
                     Post
                   </button>
-                  <button onClick={toggleModal}>Close</button>
+                  <button onClick={toggleReviewModal}>Close</button>
                 </div>
               </div>
             </section>

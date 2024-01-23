@@ -1,11 +1,9 @@
 .newProductContainer {
   margin-top: 70px;
   background-color: #ddd;
-  
-  
-
-  }
-.createProductContainer{
+  margin-bottom: 20px;
+}
+.createProductContainer {
   width: 400px;
 
   background: #fff;
@@ -19,33 +17,32 @@
   margin: auto;
   padding: 20px 40px;
   transition: all 0.5s;
-
 }
-.createProductContainer h1{
+.createProductContainer h1 {
   text-align: center;
   margin-bottom: 10px;
 }
-.createProductContainer > div{
+.createProductContainer > div {
   width: 100%;
 }
-.createProductContainer >div>input,
-.createProductContainer >div>select,
-.createProductContainer >div>textarea{
-    display: flex;
-    padding: 12px 40px;
-    padding-right: 20px;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.253);
-    border-radius: 4px;
-    font: 100 15px;
-    outline: none;
-    margin-bottom: 10px;
+.createProductContainer > div > input,
+.createProductContainer > div > select,
+.createProductContainer > div > textarea {
+  display: flex;
+  padding: 12px 40px;
+  padding-right: 20px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.253);
+  border-radius: 4px;
+  font: 100 15px;
+  outline: none;
+  margin-bottom: 10px;
 }
-.createProductContainer >div>textarea{
+.createProductContainer > div > textarea {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.createProductContainer div>svg{
+.createProductContainer div > svg {
   position: absolute;
   transform: translateX(4px);
   margin-top: 10px;
@@ -62,7 +59,6 @@
   transition: all 0.5s;
   color: rgba(0, 0, 0, 0.623);
   background-color: rgb(255, 255, 255);
- 
 }
 .createProductFormFile > input::file-selector-button:hover {
   background-color: rgb(235, 235, 235);
@@ -83,7 +79,7 @@
   color: white;
   font: 300 1rem "Roboto";
   width: 50%;
-  
+
   padding: 10px 20px;
   cursor: pointer;
   transition: all 0.5s;
@@ -94,10 +90,9 @@
 
 #createProductBtn:hover {
   background-color: var(--green-light);
-  
 }
-@media screen and (max-width:500px) {
-  .createProductContainer{
+@media screen and (max-width: 500px) {
+  .createProductContainer {
     width: 350px;
   }
 }

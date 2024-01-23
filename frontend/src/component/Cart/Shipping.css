@@ -1,93 +1,75 @@
-.shippingContainer{
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.shippingContainer {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.shippingBox{
-    background-color: #fff;
-    width:350px;
-    overflow: hidden;
-    padding-top: 15px;
-    box-shadow: var(--box-shadow);
-
+.shippingBox {
+  background-color: #fff;
+  width: 350px;
+  overflow: hidden;
+  padding-top: 15px;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
 }
-.shippingHeading{
-    text-align: center;
-    color: rgb(105, 105, 105);
-    font: 400 20px "Roboto";
-    width: 50%;
-    margin: auto;
+.shippingHeading {
+  text-align: center;
+  color: rgb(105, 105, 105);
+  font-size: 20px;
+  font-weight: 400;
+  width: 50%;
+  margin: auto;
 }
-.shippingForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: auto;
-    padding: 40px;
-    height: 80%;
-    transition: all 0.5s;
+.shippingForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: auto;
+  padding: 20px 40px;
+  height: 80%;
+  transition: all 0.5s;
 }
-.shippingForm > div{
-    display: flex;
-    width: 100%;
-    align-items: center;
-
+.shippingForm > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
-.shippingForm >div>input,
-.shippingForm >div>select{
-    display: flex;
-    padding: 15px 40px;
-    padding-right: 20px;
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.253);
-    border-radius: 4px;
-    font: 100 15px;
-    outline: none;
-    margin-top: 10px;
+.shippingForm > div > input,
+.shippingForm > div > select {
+  display: flex;
+  padding: 15px 40px;
+  padding-right: 20px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.253);
+  border-radius: 4px;
+  font: 100 15px;
+  outline: none;
+  margin-top: 10px;
 }
-.shippingForm > div>svg{
-    position: absolute;
-    transform: translateX(2px);
-    font-size: 30px;
-    color: rgba(0, 0, 0, 0.605);
+.shippingForm > div > svg {
+  position: absolute;
+  transform: translateX(2px);
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.605);
 }
-.shippingForm > div [type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+.shippingForm > div [type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
-.shippingBtn{
-    border: none;
-    background-color: var(--green);
-    color: #fff;
-    outline: none;
-    margin-top: 15px;
-    padding: 10px 25px;
-    cursor: pointer;
+.shippingBtn {
+  border: none;
+  background-color: var(--green);
+  color: #fff;
+  outline: none;
+  margin-top: 15px;
+  padding: 10px 25px;
+  cursor: pointer;
 }
-.shippingBtn:hover{
-    background-color: var(--green-light);
+.shippingBtn:hover {
+  background-color: var(--green-light);
 }
-
-@media screen and (max-width:600px){
-}
-
-
-
-  
-
-
-
-
-
-
-
-
-

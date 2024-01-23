@@ -10,7 +10,7 @@
   border-radius: 0.4rem;
 }
 .empty-cart{
-  height: 50vh;
+  height: 100vh;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,7 +19,6 @@
 .cartHeader {
   background-color: var(--green);
   width: 100%;
-  /* margin: auto; */
   color: #fff;
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
@@ -34,7 +33,6 @@
 }
 .cartContainer {
   width: 100%;
-  /* margin: auto; */
   border-bottom: 1px solid rgb(231, 231, 231);
 
   display: grid;
@@ -63,6 +61,7 @@
 }
 .cartGrossProfitBox .Tprice {
   margin-left: 50px;
+  font-weight: 500;
 }
 .checkOutBtn {
   display: flex;

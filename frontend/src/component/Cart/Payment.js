@@ -23,7 +23,7 @@ const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
 
   const dispatch = useDispatch();
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
   const alert = useAlert();
   const stripe = useStripe();
   const elements = useElements();
@@ -35,8 +35,8 @@ const Payment = () => {
   const { error } = useSelector((state) => state.newOrder);
 
   const paymentData = {
-    amount: Math.round(orderInfo.totalPrice * 100)
-  }
+    amount: Math.round(orderInfo.totalPrice * 100),
+  };
   const order = {
     shippingInfo,
     orderItems: cartItems,
@@ -79,7 +79,7 @@ const Payment = () => {
               country: shippingInfo.country,
             },
           },
-        }, 
+        },
       });
       if (result.error) {
         payBtn.current.disabled = false;
@@ -91,8 +91,7 @@ const Payment = () => {
             status: result.paymentIntent.status,
           };
           dispatch(createOrder(order));
-          navigate("/success")
-          
+          navigate("/success");
         } else {
           alert.error("Payment Processing failed");
         }
@@ -119,7 +118,7 @@ const Payment = () => {
 
           <div>
             <CreditCardIcon />
-            <CardNumberElement className="paymentInput"  />
+            <CardNumberElement className="paymentInput" />
           </div>
           <div>
             <EventIcon />

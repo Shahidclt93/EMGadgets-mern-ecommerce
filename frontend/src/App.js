@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./component/layout/Header/Header";
 import Footer from "./component/layout/Footer/Footer";
@@ -11,14 +11,12 @@ import {
 import Home from "./component/Home/Home";
 import WebFont from "webfontloader";
 import ProductDetails from "./component/Product/ProductDetails";
-import Test from "./Test";
 import Products from "./component/Product/Products";
 import LoginSignUp from "./component/User/LoginSignUp";
 import store from "./store";
 import { useSelector } from "react-redux";
 import { loadUser } from "./actions/userAction";
 import Profile from "./component/User/Profile";
-import ProtectedRoute from "./component/Route/ProtectedRoute";
 import UpdateProfile from "./component/User/UpdateProfile";
 import UpdatePassword from "./component/User/UpdatePassword";
 import ForgotPassword from "./component/User/ForgotPassword";
@@ -73,13 +71,7 @@ function App() {
   React.useEffect(() => {
     WebFont.load({
       google: {
-        families: [
-          "Roboto:300,400,500",
-          "Poppins:200,300,400,500 ",
-          "Droid sans",
-          "Chilanka",
-          "Kumbh Sans",
-        ],
+        families: ["Roboto:300,400,500", "Kumbh Sans:200,300,400,500,600"],
       },
     });
     store.dispatch(loadUser());
@@ -107,13 +99,7 @@ function App() {
         <Route path="/login" element={<LoginSignUp />} />
         <Route path="/password/forgot" element={<ForgotPassword />} />
         <Route path="/cart" element={<Cart />} />
-        <Route
-          path="*"
-          element={
-            <NotFound />
-          }
-        />
-        <Route path="/test" element={<Test />} />
+        <Route path="*" element={<NotFound />} />
 
         <Route path="/account" element={auth(<Profile />)} />
         <Route path="/me/update" element={auth(<UpdateProfile />)} />
@@ -136,7 +122,7 @@ function App() {
         <Route path="/admin/user/:id" element={authAdmin(<UpdateUser />)} />
         <Route path="/admin/reviews" element={authAdmin(<ProductReviews />)} />
       </Routes>
-     
+
       <Footer />
     </Router>
   );

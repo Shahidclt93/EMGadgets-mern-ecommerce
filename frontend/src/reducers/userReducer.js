@@ -24,11 +24,9 @@ import {
   FORGOT_PASSWORD_FAIL,
   DELETE_USER_REQUEST,
   DELETE_USER_SUCCESS,
-  DELETE_USER_FAIL,
   DELETE_USER_RESET,
   UPDATE_USER_REQUEST,
   UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAIL,
   UPDATE_USER_RESET,
   USER_DETAILS_REQUEST,
   USER_DETAILS_SUCCESS,
@@ -37,6 +35,7 @@ import {
   ALL_USERS_SUCCESS,
   ALL_USERS_FAIL,
 } from "../constants/userConstants";
+
 //Register and Login
 export const userReducer = (state = { user: [] }, action) => {
   switch (action.type) {
@@ -119,7 +118,6 @@ export const profileReducer = (state = {}, action) => {
         loading: false,
         isDeleted: action.payload.success,
         message: action.payload.message,
-
       };
 
     case UPDATE_PROFILE_FAIL:

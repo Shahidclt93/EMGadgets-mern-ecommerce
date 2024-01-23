@@ -11,32 +11,37 @@
   flex-direction: column;
 }
 .cardItemCard > div > a {
-  font: 300 20px;
+  font-size: 20px;
+  font-weight: 400;
   color: rgba(24, 24, 24, 0.815);
   text-decoration: none;
 }
-.cardItemCard > div > span{
-    font: 400 17px "Roboto";
-    color: rgba(24,24,24,0.815);
+.cardItemCard > div > span {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(24, 24, 24, 0.815);
 }
-.cardItemCard > div>p{
-    color: tomato;
-    font: 200 15px "Roboto";
-    cursor: pointer;
+.cardItemCard > div > p {
+  color: tomato;
+  font-size: 15px;
+  font-weight: 400;
+
+  cursor: pointer;
 }
-@media screen and (max-width: 600px){
-    .cardItemCard{
-        padding: 10px;
-        
-        
-    }
-    .cardItemCard > img {
-      width: 60px;
-      padding-right: 5px;
-    }
-    .cardItemCard > div {
+@media screen and (max-width: 600px) {
+  .cardItemCard {
+    padding: 10px;
+  }
+  .cardItemCard > div > a {
+    font-size: 17px;
+  }
+  .cardItemCard > img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+  }
+  .cardItemCard > div {
     padding: 0;
     margin: 0;
-    }
-  
+  }
 }

@@ -1,10 +1,4 @@
-import React, {
-  Fragment,
-  useEffect,
-  useState,
-
- 
-} from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./Products.css";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,8 +13,7 @@ import MetaData from "../layout/MetaData";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CloseIcon from "@mui/icons-material/Close";
 
-
-const categories = ["Laptop", "watches", "smartphones", "gadgets", "camera"];
+const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -55,19 +48,14 @@ const Products = () => {
   const priceHandler = (event, newPrice) => {
     setPrice(newPrice);
   };
-  const filterRun = () => {
-    setFilterApplied(true);
-  };
 
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-    if (filterApplied === true) {
-      dispatch(getProduct(price, currentPage, category, ratings));
-      setFilterApplied(false);
-    }
+
+    dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [
     dispatch,
     keyword,
@@ -134,15 +122,13 @@ const Products = () => {
                   max={5}
                 />
               </fieldset>
-              <button className="go-button" onClick={filterRun}>
-                GO
-              </button>
+              <button className="go-button">GO</button>
             </div>
             <div className="products-container">
               <div className="products-grid">
                 {products &&
                   products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product._id} product={product} />
                   ))}
               </div>
             </div>
@@ -168,10 +154,8 @@ const Products = () => {
           )}
         </Fragment>
       )}
-   
     </Fragment>
   );
 };
 
 export default Products;
-

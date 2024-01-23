@@ -13,7 +13,7 @@
   width: 100%;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
   overflow: hidden;
   margin: 0 20px;
 }
@@ -32,14 +32,14 @@
   transition: height 0.2s ease;
   height: 350px;
 }
-.loginContainer.active  .update-password{
+.loginContainer.active .update-password {
   display: flex;
   align-items: center;
   height: 410px;
   width: 200%;
   transition: height 0.2s ease;
 }
-.loginContainer.active  .forgot-password{
+.loginContainer.active .forgot-password {
   display: flex;
   align-items: center;
   height: 300px;
@@ -53,7 +53,6 @@
   background-color: #fff;
   transition: margin-left 0.18s ease;
 }
-
 
 .loginContainer.active .login {
   margin-left: -50%;
@@ -173,7 +172,7 @@
 }
 .form .login-signup .orOption {
   font: 500 15px;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 .createAccBtn {
   height: 45px;
@@ -193,4 +192,9 @@
 .createAccBtn:hover {
   background-color: var(--green);
   color: #fff;
+}
+.back-to-login {
+  width: fit-content;
+  margin: auto;
+  margin-top: 10px;
 }

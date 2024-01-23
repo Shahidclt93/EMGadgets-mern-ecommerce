@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
 import { useSelector } from "react-redux";
-import history from "../layout/history";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {

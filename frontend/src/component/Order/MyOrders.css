@@ -4,9 +4,8 @@
   min-height: 70vh;
   overflow-x: auto;
 }
-.my-orders .my-orders-h1{
- 
-font-weight: 400;
+.my-orders .my-orders-h1 {
+  font-weight: 400;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -22,8 +21,11 @@ font-weight: 400;
 .my-orders th,
 td {
   text-align: left;
-  font-size: 12px;
+  font-size: 15px;
   padding: 7px 10px;
+}
+.my-orders tr td {
+  padding: 20px 10px;
 }
 
 .my-orders th {
@@ -54,8 +56,8 @@ td {
   color: #fff;
   cursor: pointer;
 }
-@media screen and (max-width:726px) {
-  .my-orders{
+@media screen and (max-width: 726px) {
+  .my-orders {
     padding: 30px 10px;
   }
 }

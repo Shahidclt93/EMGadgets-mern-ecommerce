@@ -30,7 +30,8 @@ const NewProduct = () => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["Laptop", "watches", "smartphones", "gadgets", "camera"];
+  const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -45,8 +46,8 @@ const NewProduct = () => {
 
   const createSubmitHandler = (e) => {
     e.preventDefault();
-    const myForm = new FormData();
 
+    const myForm = new FormData();
     myForm.set("name", name);
     myForm.set("price", price);
     myForm.set("description", description);
@@ -55,11 +56,13 @@ const NewProduct = () => {
 
     images.forEach((image) => {
       myForm.append("images", image);
+
+      dispatch(createProduct(myForm));
     });
-    dispatch(createProduct(myForm));
   };
   const createProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
+
     setImages([]);
     setImagesPreview([]);
 
@@ -72,6 +75,7 @@ const NewProduct = () => {
           setImages((old) => [...old, reader.result]);
         }
       };
+
       reader.readAsDataURL(file);
     });
   };
@@ -89,7 +93,7 @@ const NewProduct = () => {
           >
             <h1>Create Product</h1>
             <div>
-            <SpellcheckIcon />
+              <SpellcheckIcon />
               <input
                 type="text"
                 placeholder="Product Name"
@@ -99,7 +103,7 @@ const NewProduct = () => {
               />
             </div>
             <div>
-        <AttachMoneyIcon />
+              <AttachMoneyIcon />
               <input
                 type="number"
                 placeholder="Price"
@@ -109,9 +113,8 @@ const NewProduct = () => {
               />
             </div>
             <div>
-            
-               <DescriptionIcon />
-         
+              <DescriptionIcon />
+
               <textarea
                 type="number"
                 placeholder="Product description"
@@ -122,8 +125,11 @@ const NewProduct = () => {
               />
             </div>
             <div>
-             <AccountTreeIcon />
-              <select value={category} onChange={(e) => setCategory(e.target.value)}>
+              <AccountTreeIcon />
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+              >
                 <option value="">Choose Category</option>
                 {categories.map((item) => (
                   <option key={item} value={item}>
@@ -133,10 +139,8 @@ const NewProduct = () => {
               </select>
             </div>
             <div>
-           
-
               <StorageIcon />
-          
+
               <input
                 type="number"
                 placeholder="Stock"

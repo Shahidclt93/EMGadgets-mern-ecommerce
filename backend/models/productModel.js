@@ -28,17 +28,13 @@ const productSchema = new mongoose.Schema({
       url:{
         type:String,
         required:true
-      }
-    }
+      },
+    },
   ],
   category:{
     type:String,
     required:[true,"Please enter product category"]
   },
-  colors:[{
-    type:String,
-    required:[true,"Please enter product color"]
-  }],
   Stock:{
     type:Number,
     required:[true,"Please enter product stock"],
