@@ -25,11 +25,12 @@ const server = app.listen(process.env.PORT, () => {
 });
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").config({ path: "/config.env" });
+  require("dotenv").config({ path: "config.env" });
 }
 
 //Unhandled promise rejection
 process.on("unhandledRejection", (err) => {
+
   console.log(`Error ${err.message}`);
   console.log(`Shutting down the server due to unhandler promise Rejection`);
 
