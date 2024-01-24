@@ -14,6 +14,10 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").config({ path: "backend/config/config.env" });
+}
+
 //Route imports
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
