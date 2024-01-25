@@ -12,9 +12,11 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 const corsOptions = {
-  origin: 'https://vocal-rabanadas-15393b.netlify.app/',
-  optionsSuccessStatus: 200 /
-app.use(cors());
+  origin: "https://vocal-rabanadas-15393b.netlify.app/",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "config.env" });
 }
