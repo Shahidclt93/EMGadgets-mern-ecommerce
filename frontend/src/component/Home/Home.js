@@ -176,7 +176,7 @@ const Home = () => {
                   </figure>
 
                   <a
-                    href="#"
+                    href=""
                     className="category-item-btn"
                     onClick={() => navigate("/products/&category=Headphones")}
                   >
@@ -190,7 +190,7 @@ const Home = () => {
                   </figure>
 
                   <a
-                    href="#"
+                    href=""
                     className="category-item-btn"
                     onClick={() => navigate("/products/&category=Watches")}
                   >
@@ -204,7 +204,7 @@ const Home = () => {
                   </figure>
 
                   <a
-                    href="#"
+                    href=""
                     className="category-item-btn"
                     onClick={() =>
                       navigate("/products/&category=Mobile%Accessories")
@@ -220,7 +220,7 @@ const Home = () => {
                   </figure>
 
                   <a
-                    href="#"
+                    href=""
                     className="category-item-btn"
                     onClick={() => navigate("/products/&category=Gadgets")}
                   >

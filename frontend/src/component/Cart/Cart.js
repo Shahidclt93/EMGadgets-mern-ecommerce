@@ -6,9 +6,10 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { useSelector, useDispatch } from "react-redux";
 import { addItemsToCart, removeItemFromCart } from "../../actions/cartAction";
 import ScrollToTop from "../layout/ScrollToTop";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -29,6 +30,10 @@ const Cart = () => {
   const removeItem = (id) => {
     dispatch(removeItemFromCart(id));
   };
+  const checkoutHandler = () => {
+    navigate("/shipping");
+  };
+
 
   return (
     <Fragment>
@@ -94,7 +99,7 @@ const Cart = () => {
               <div></div>
               <div className="checkOutBtn">
                 <Link to="/shipping">
-                  <button className="Btn1">Check Out</button>
+                  <button className="Btn1" onClick={checkoutHandler}>Check Out</button>
                 </Link>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
 import { clearErrors, myOrders } from "../../actions/orderAction";
@@ -10,8 +10,6 @@ import { Fragment } from "react";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
-  const params = useParams();
-  const id = params.id;
 
   const { loading, error, orders } = useSelector((state) => state.myOrders);
   const { user } = useSelector((state) => state.user);
