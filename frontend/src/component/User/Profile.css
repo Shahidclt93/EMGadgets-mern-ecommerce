@@ -40,7 +40,7 @@
   transition: all 0.5s;
 }
 .profileContainer > div:first-child > a:hover {
-  background-color: var(--light-green);
+  background-color: var(--green-light);
 }
 .profileContainer > div:last-child {
   align-items: flex-start;
