@@ -5,11 +5,10 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
 const errorMiddleware = require("./middleware/error");
-const path = require("path");
-
-
+const cors = require("cors");
 
 app.use(express.json({ limit: "50mb" }));
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
