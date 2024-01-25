@@ -5,7 +5,7 @@ import MetaData from "../layout/MetaData";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
 import ScrollToTop from "../layout/ScrollToTop";
@@ -31,18 +31,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const Home = () => {
-  const alert = useAlert();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     dispatch(getProduct());
-  }, [dispatch, error, alert]);
+  }, [dispatch, error, toast]);
 
   return (
     <Fragment>

@@ -7,8 +7,8 @@ import {
   deleteReviews,
 } from "../../actions/productAction";
 import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
 import { Button } from "@mui/material";
+import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
 import StarIcon from "@mui/icons-material/Star";
 
@@ -20,7 +20,6 @@ import "./ProductReviews.css";
 const ProductReviews = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const alert = useAlert();
 
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.review
@@ -44,21 +43,21 @@ const ProductReviews = () => {
       dispatch(getAllReveiws(productId));
     }
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+      toast.error(deleteError);
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      alert.success("Review Deleted Successfully");
+      toast.success("Review Deleted Successfully");
       navigate("/admin/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
-  }, [dispatch, error, alert, deleteError, navigate, isDeleted, productId]);
+  }, [dispatch, error, toast, deleteError, navigate, isDeleted, productId]);
 
   const columns = [
     { field: "id", headerName: "Review ID", minWidth: 200, flex: 0.5 },

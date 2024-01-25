@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import "./Shipping.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import { saveShippingInfo } from "../../actions/cartAction";
 import CheckOutSteps from "./CheckOutSteps";
 import MetaData from "../layout/MetaData";
@@ -14,7 +14,6 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import TransferWithinAStationIcon from "@mui/icons-material/TransferWithinAStation";
 import { Country, State } from "country-state-city";
 const Shipping = () => {
-  const alert = useAlert();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { ShippingInfo } = useSelector((state) => state.cart);
@@ -29,7 +28,7 @@ const Shipping = () => {
   const shippingSubmit = (e) => {
     e.preventDefault();
     if (phoneNo.length < 10 || phoneNo.length > 10) {
-      alert.error("Phone number should be 10 digit");
+      toast.error("Phone number should be 10 digit");
       return;
     }
     dispatch(

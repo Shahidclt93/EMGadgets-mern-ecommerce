@@ -8,13 +8,12 @@ import LockIcon from "@mui/icons-material/Lock";
 import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import Loader from "../layout/Loader/Loader";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
 function LoginSignUp() {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate();
   const location = useLocation();
   const { error, loading, isAuthenticated } = useSelector(
@@ -63,13 +62,13 @@ function LoginSignUp() {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
       navigate(redirect);
     }
-  }, [dispatch, error, redirect, navigate, alert, isAuthenticated]);
+  }, [dispatch, error, redirect, navigate, toast, isAuthenticated]);
 
   const toggleContainer = () => {
     setContainerActive(!containerActive);

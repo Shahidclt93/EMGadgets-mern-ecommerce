@@ -5,8 +5,8 @@ import emgadgetLogo from "../../../images/emgadgets-logo.png";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
 import SearchIcon from "@mui/icons-material/Search";
+import { toast } from 'react-toastify';
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
@@ -22,7 +22,6 @@ const Header = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cart);
   const navigate = useNavigate();
-  const alert = useAlert();
   const dispatch = useDispatch();
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -47,7 +46,7 @@ const Header = () => {
   };
   function logoutUser() {
     dispatch(logout());
-    alert.success("logout successfully");
+    toast.success("logout successfully");
   }
   const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
 

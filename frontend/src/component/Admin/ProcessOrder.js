@@ -6,7 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
 import Sidebar from "../Admin/Sidebar";
 import { Typography } from "@mui/material";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
+
 import {
   getOrderDetails,
   clearErrors,
@@ -19,7 +20,6 @@ const ProcessOrder = () => {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
-  const alert = useAlert();
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const { isUpdated, error: updateError } = useSelector((state) => state.order);
   const { user } = useSelector((state) => state.user);
@@ -35,15 +35,15 @@ const ProcessOrder = () => {
   };
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     if (updateError) {
-      alert.error(updateError);
+      toast.error(updateError);
       dispatch(clearErrors());
     }
     if (isUpdated) {
-      alert.success("Order Updated");
+      toast.success("Order Updated");
       navigate("/admin/orders");
 
       dispatch({ type: UPDATE_ORDER_RESET });
@@ -51,7 +51,7 @@ const ProcessOrder = () => {
     
 
     dispatch(getOrderDetails(params.id));
-  }, [dispatch, alert, error, params.id, isUpdated, updateError]);
+  }, [dispatch, toast, error, params.id, isUpdated, updateError]);
   return (
     <Fragment>
       <MetaData title="Process order" />

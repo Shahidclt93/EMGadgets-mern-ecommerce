@@ -7,14 +7,13 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import MetaData from "../layout/MetaData";
 
 import { clearErrors, updatePassword } from "../../actions/userAction";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
 import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
 
 const UpdatePassword = () => {
   const navigate = useNavigate();
-  const alert = useAlert();
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
@@ -37,17 +36,17 @@ const UpdatePassword = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     if (isUpdated) {
-      alert.success("Password Updated successfully");
+      toast.success("Password Updated successfully");
       navigate("/account");
       dispatch({
         type: UPDATE_PASSWORD_RESET,
       });
     }
-  }, [dispatch, error, alert, navigate, isUpdated]);
+  }, [dispatch, error, toast, navigate, isUpdated]);
 
   return (
     <Fragment>

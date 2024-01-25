@@ -8,7 +8,7 @@ import ProductCard from "../Home/ProductCard";
 import Pagination from "react-js-pagination";
 import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CloseIcon from "@mui/icons-material/Close";
@@ -18,7 +18,6 @@ const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
 const Products = () => {
   const dispatch = useDispatch();
   const { keyword } = useParams();
-  const alert = useAlert();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 25000]);
@@ -51,7 +50,7 @@ const Products = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
@@ -63,7 +62,7 @@ const Products = () => {
     category,
     price,
     ratings,
-    alert,
+    toast,
     error,
     filterApplied,
   ]);

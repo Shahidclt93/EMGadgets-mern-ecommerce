@@ -4,21 +4,21 @@ import './index.css';
 import App from './App';
 import {Provider} from "react-redux";
 import store from "./store";
-import {positions,transitions,Provider as AlertProvider} from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
-const options ={
-  timeout:5000,
-  position:positions.BOTTOM_CENTER,
-  transition:transitions.SCALE
-}
+
+
 
 const root = createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <AlertProvider template={AlertTemplate} {...options}>
+      <ToastContainer
+      position="bottom-center" // Set desired position
+      autoClose={5000} // Automatically close after 5 seconds
+      hideProgressBar={false} // Display a progress bar
+    />
     <App />
-    </AlertProvider>
   </Provider>
 );
 

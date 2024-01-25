@@ -7,7 +7,8 @@ import {
   getProductDetails,
 } from "../../actions/productAction";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
+
 import { Button } from "@mui/material";
 import Sidebar from "./Sidebar";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
@@ -21,7 +22,6 @@ import MetaData from "../layout/MetaData";
 
 const UpdateProduct = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -58,21 +58,21 @@ const UpdateProduct = () => {
       setOldImages(product && product.images);
     }
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     if (updateError) {
-      alert.error(updateError);
+      toast.error(updateError);
       dispatch(clearErrors());
     }
     if (isUpdated) {
-      alert.success("Product updated successfully");
+      toast.success("Product updated successfully");
       navigate("/admin/products");
       dispatch({ type: UPDATE_PRODUCT_RESET });
     }
   }, [
     dispatch,
-    alert,
+    toast,
     error,
     navigate,
     isUpdated,

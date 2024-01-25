@@ -81,6 +81,7 @@ function App() {
   }, []);
 
   window.addEventListener("contextmenu", (e) => e.preventDefault());
+
   return (
     <Router>
       <Header />
@@ -112,10 +113,11 @@ function App() {
         <Route path="/admin/dashboard" element={authAdmin(<Dashboard />)} />
         <Route path="/admin/products" element={authAdmin(<ProductList />)} />
         <Route path="/admin/product" element={authAdmin(<NewProduct />)} />
+       
         <Route
           path="/admin/product/:id"
-          element={authAdmin(<UpdateProduct />)}
-        />
+          element={authAdmin( <UpdateProduct />)}
+        /> 
         <Route path="/admin/orders" element={authAdmin(<OrderList />)} />
         <Route path="/admin/order/:id" element={authAdmin(<ProcessOrder />)} />
         <Route path="/admin/users" element={authAdmin(<UsersList />)} />

@@ -7,7 +7,7 @@ import {
   updateUser,
 } from "../../actions/userAction";
 import { useParams, useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import { Button } from "@mui/material";
 import SideBar from "./Sidebar";
 import Loader from "../layout/Loader/Loader";
@@ -22,7 +22,6 @@ import MetaData from "../layout/MetaData";
 
 const UpdateUser = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -47,19 +46,19 @@ const UpdateUser = () => {
       setRole(user && user.role);
     }
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     if (updateError) {
-      alert.error(updateError);
+      toast.error(updateError);
       dispatch(clearErrors());
     }
     if (isUpdated) {
-      alert.success("User Updated successfully");
+      toast.success("User Updated successfully");
       navigate("/admin/users");
       dispatch({ type: UPDATE_USER_RESET });
     }
-  }, [dispatch, alert, error, navigate, isUpdated, updateError, user, userId]);
+  }, [dispatch, toast, error, navigate, isUpdated, updateError, user, userId]);
 
   const updateSubmitHandler = (e) => {
     e.preventDefault();

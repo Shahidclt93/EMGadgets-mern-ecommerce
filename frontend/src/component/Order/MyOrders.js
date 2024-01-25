@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import { Link, useParams } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
@@ -10,8 +10,6 @@ import { Fragment } from "react";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
-
   const params = useParams();
   const id = params.id;
 
@@ -20,12 +18,12 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
     dispatch(myOrders());
-  }, [dispatch, alert, error]);
+  }, [dispatch, toast, error]);
 
   return (
     <Fragment>

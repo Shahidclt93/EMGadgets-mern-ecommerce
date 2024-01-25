@@ -9,7 +9,7 @@ import {
 import { useParams } from "react-router-dom";
 import Loader from "../layout/Loader/Loader";
 import ReviewCard from "./ReviewCard";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
 import ScrollToTop from "../layout/ScrollToTop";
 import AddIcon from "@mui/icons-material/Add";
@@ -21,7 +21,6 @@ import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  const alert = useAlert();
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -41,7 +40,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
   });
@@ -82,9 +81,9 @@ const ProductDetails = () => {
   const addToCartHandler = () => {
     if (count >= 1) {
       dispatch(addItemsToCart(id, count));
-      alert.success("Item Added to Cart");
+      toast.success("Item Added to Cart");
     } else {
-      alert.error("item quantity is 0");
+      toast.error("item quantity is 0");
     }
   };
   const reviewSubmitHandler = () => {
@@ -106,19 +105,19 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
     if (reviewError) {
-      alert.error(reviewError);
+      toast.error(reviewError);
       dispatch(clearErrors());
     }
     if (success) {
-      alert.success("Review added successfully");
+      toast.success("Review added successfully");
       dispatch({ type: NEW_REVIEW_RESET });
     }
     dispatch(getProductDetails(id));
-  }, [dispatch, id, error, alert, reviewError, success]);
+  }, [dispatch, id, error, toast, reviewError, success]);
 
   return (
     <Fragment>

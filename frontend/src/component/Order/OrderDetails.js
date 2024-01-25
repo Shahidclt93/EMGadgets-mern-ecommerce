@@ -6,22 +6,21 @@ import { Link, useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
-import { useAlert } from "react-alert";
+import { toast } from 'react-toastify';
 
 const OrderDetails = () => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const params = useParams();
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      toast.error(error);
       dispatch(clearErrors());
     }
 
     dispatch(getOrderDetails(params.id));
-  }, [dispatch, alert, error, params.id]);
+  }, [dispatch, toast, error, params.id]);
   return (
     <Fragment>
       {loading ? (

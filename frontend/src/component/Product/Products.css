@@ -98,7 +98,9 @@ span.MuiSlider-root {
 .pageLinkActive {
   color: #fff;
 }
-
+.filter-icon:hover{
+  color: var(--green-light);
+}
 .filter-icon {
   display: none;
 }
