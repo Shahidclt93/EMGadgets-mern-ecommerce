@@ -12,7 +12,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 const corsOptions = {
-  origin: "https://vocal-rabanadas-15393b.netlify.app/",
+  origin: "https://vocal-rabanadas-15393b.netlify.app",
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
