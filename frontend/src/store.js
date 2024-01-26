@@ -2,7 +2,8 @@ import {
   createStore,
   combineReducers,
   applyMiddleware,
-} from "@reduxjs/toolkit";
+} from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 import {
