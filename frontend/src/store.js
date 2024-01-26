@@ -58,11 +58,10 @@ let initialState = {
   },
 };
 
-const store = configureStore({
+const store = createStore(
   reducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(thunk), 
-  preloadedState: initialState, 
-});
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 
 export default store;
