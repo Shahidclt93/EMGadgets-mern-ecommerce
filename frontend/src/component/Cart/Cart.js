@@ -98,9 +98,7 @@ const Cart = () => {
               </div>
               <div></div>
               <div className="checkOutBtn">
-                <Link to="/shipping">
                   <button className="Btn1" onClick={checkoutHandler}>Check Out</button>
-                </Link>
               </div>
             </div>
           </div>
