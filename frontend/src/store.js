@@ -1,4 +1,8 @@
-import { configureStore,combineReducers } from "@reduxjs/toolkit";
+import {
+  createStore,
+  combineReducers,
+  applyMiddleware,
+} from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 
 import {
@@ -8,7 +12,7 @@ import {
   productsReducer,
   productReducer,
   productReviewsReducer,
-  reviewReducer
+  reviewReducer,
 } from "./reducers/productsReducer";
 import {
   userReducer,
@@ -39,12 +43,12 @@ const reducer = combineReducers({
   newReview: newReviewReducer,
   newProduct: newProductReducer,
   product: productReducer,
-  allOrders : allOrdersReducer,
-  order:ordersReducer,
+  allOrders: allOrdersReducer,
+  order: ordersReducer,
   allUsers: allUserReducer,
   userDetails: userDetailsReducer,
   productReviews: productReviewsReducer,
-  review: reviewReducer
+  review: reviewReducer,
 });
 
 let initialState = {
@@ -57,6 +61,8 @@ let initialState = {
       : {},
   },
 };
+
+const middleware = [thunk];
 
 const store = createStore(
   reducer,
