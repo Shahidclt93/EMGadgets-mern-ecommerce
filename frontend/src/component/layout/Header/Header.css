@@ -178,6 +178,7 @@
 .navbar .login-navbar {
   display: none;
 }
+
 /* LoggedIn dropdown */
 .loggedIn-select-menu {
   width: 110px;
@@ -280,7 +281,7 @@
     background-color: #fff;
     height: 100%;
     box-shadow: var(--box-shadow);
-    z-index: 150;
+    z-index: 2050;
   }
 
   .header .navbar.active {
@@ -289,13 +290,24 @@
   .navbar .navbar-items {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 40px;
   }
   .navbar .navbar-items .nav-item {
     color: var(--green);
     font-size: 20px;
     font-weight: 500;
     margin: 0.8rem 0;
+  }
+  .navbar .navbar-items  .login-navbar .nav-item {
+    font-size: 12px;
+    margin-left: -150px;
+    margin-top: -20px;
+    border: 1px solid var(--green);
+    padding: 2px 5px;
+    width: fit-content;
+  }
+  .navbar .login-navbar{
+    display: block;
   }
 
   .category-options {

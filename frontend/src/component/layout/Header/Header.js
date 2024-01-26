@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
@@ -65,6 +65,9 @@ const Header = () => {
             <CloseIcon style={{ fontSize: "2rem" }} />
           </i>
           <ul className="navbar-items">
+            <Link to="/login" className="login-navbar">
+              <li className="nav-item">Create Account </li>
+            </Link>
             <Link to="/">
               <li className="nav-item">
                 <a>Home</a>
@@ -113,12 +116,6 @@ const Header = () => {
               </li>
             </Link>
           </ul>
-
-          {!isAuthenticated && (
-            <Link to="/login" className="login-navbar">
-              Login/Register
-            </Link>
-          )}
         </nav>
         <div className="header-icons">
           {
@@ -197,6 +194,8 @@ const Header = () => {
             </div>
           )}
         </div>
+      <section className={`navbar-overlay overlay ${navbarOpen ? "active" : ""}`} onClick={navbarToggle}></section>
+
       </header>
       <form
         action=""

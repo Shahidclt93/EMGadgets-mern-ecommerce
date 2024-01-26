@@ -127,9 +127,10 @@ span.MuiSlider-root {
 }
 @media screen and (max-width: 850px) {
   .filter-column {
-    position: absolute;
+    position: fixed;
     top: 100px;
     width: 250px;
+    height: 100%;
     left: -100%;
     z-index: 20;
   }
