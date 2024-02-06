@@ -34,12 +34,12 @@ import {
   ALL_USERS_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
-
+const token = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
 //Login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json","Authorization": `Bearer ${token}` } };
 
     const { data } = await axios.post(
       `https://emgadgets-mern.onrender.com/api/v1/login`,
@@ -56,9 +56,9 @@ export const register = (userData) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_USER_REQUEST });
 
-    // const config = { headers: { "Content-Type": "multipart/form-data" } };
+    const config = { headers: { "Authorization": `Bearer ${token}` } };
 
-    const { data } = await axios.post(`/api/v1/register`, userData);
+    const { data } = await axios.post(`https://emgadgets-mern.onrender.com/api/v1/login`, userData,config);
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({
