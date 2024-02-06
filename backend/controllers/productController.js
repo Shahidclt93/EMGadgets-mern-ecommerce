@@ -3,10 +3,7 @@ const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apifeatures");
 const cloudinary = require("cloudinary");
-const multer = require("multer");
-const path = require("path");
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
+
 
 //create product(admin)
 
