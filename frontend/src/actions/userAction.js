@@ -41,12 +41,8 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
     const config = {
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
-      mode: "cors",
-      credentials: "include",
-      withCredentials: true,
     };
 
     const { data } = await axios.post(
