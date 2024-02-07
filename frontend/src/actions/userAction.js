@@ -74,10 +74,9 @@ export const register = (userData) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-    const config = { headers: {withCredentials: true }};
 
     const { data } = await axios.get(
-      `https://emgadgets-mern.onrender.com/api/v1/me`,config
+      `https://emgadgets-mern.onrender.com/api/v1/me`
     );
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
@@ -100,7 +99,7 @@ export const logout = () => async (dispatch) => {
 export const updateProfile = (userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
-    const config = { headers: { "Content-Type": "application/json"},withCredentials: true };
+    const config = { headers: { "Content-Type": "application/json"}};
 
     const { data } = await axios.put(
       `https://emgadgets-mern.onrender.com/api/v1/me/update`,
@@ -119,7 +118,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PASSWORD_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json"},withCredentials: true };
+    const config = { headers: { "Content-Type": "application/json"} };
 
 
     const { data } = await axios.put(
@@ -139,7 +138,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
 export const forgotPassword = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });
-    const config = { headers: { "Content-Type": "application/json"},withCredentials: true };
+    const config = { headers: { "Content-Type": "application/json"}};
 
 
     const { data } = await axios.post(
@@ -174,10 +173,9 @@ export const getAllUsers = () => async (dispatch) => {
 export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
-    const config = { headers: { "Content-Type": "application/json"},withCredentials: true };
 
     const { data } = await axios.get(
-      `https://emgadgets-mern.onrender.com/api/v1/admin/user/${id}`,config
+      `https://emgadgets-mern.onrender.com/api/v1/admin/user/${id}`,
     );
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
@@ -190,7 +188,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_USER_REQUEST });
 
-    const config = { headers: { "Content-Type": "application/json"},withCredentials: true };
+    const config = { headers: { "Content-Type": "application/json"}};
 
 
     const { data } = await axios.put(
@@ -210,10 +208,9 @@ export const updateUser = (id, userData) => async (dispatch) => {
 export const deleteUser = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
-    const config = { headers: { "Content-Type": "application/json"},withCredentials: true };
 
     const { data } = await axios.delete(
-      `https://emgadgets-mern.onrender.com/api/v1/admin/user/${id}`,config
+      `https://emgadgets-mern.onrender.com/api/v1/admin/user/${id}`
     );
     dispatch({ type: DELETE_USER_SUCCESS, payload: data });
   } catch (error) {
