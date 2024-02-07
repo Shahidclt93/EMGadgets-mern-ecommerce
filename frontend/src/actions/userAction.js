@@ -34,15 +34,12 @@ import {
   ALL_USERS_FAIL,
 } from "../constants/userConstants";
 import axios from "axios";
-const axiosConfig = {
-  withCredentials: true,
-  // Other configurations...
-};
+
 //Login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
-    const config = { headers: { "Content-Type": "application/json" ,  withCredentials: true,} };
+    const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(
       `https://emgadgets-mern.onrender.com/api/v1/login`,
@@ -50,6 +47,7 @@ export const login = (email, password) => async (dispatch) => {
       config
     );
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
+    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
   }
@@ -109,6 +107,8 @@ export const updateProfile = (userData) => async (dispatch) => {
       userData
     );
     dispatch({ type: UPDATE_PROFILE_SUCCESS, payload: data.success });
+    localStorage.setItem("userInfo", JSON.stringify(data));
+
   } catch (error) {
     dispatch({
       type: UPDATE_PROFILE_FAIL,
