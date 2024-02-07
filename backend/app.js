@@ -11,6 +11,10 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 app.use(cors({credentials: true,}));
+app.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send("API is running..");
+});
 
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
