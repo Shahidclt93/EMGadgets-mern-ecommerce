@@ -61,9 +61,6 @@ let initialState = {
       ? JSON.parse(localStorage.getItem("shippingInfo"))
       : {},
   },
-  userLogin: { userInfo: localStorage.getItem("userInfo")
-  ? JSON.parse(localStorage.getItem("userInfo"))
-  : null}
 };
 
 

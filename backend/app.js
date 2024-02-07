@@ -10,13 +10,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
-app.use(cors());
-app.get("/", (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials","true");
-  res.send("API is running..");
-});
-
-
+app.use(cors({ credentials: true }));
 
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({ path: "config.env" });
