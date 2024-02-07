@@ -74,7 +74,7 @@ export const register = (userData) => async (dispatch) => {
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
-    const config = { headers: { "Content-Type": "application/json"},withCredentials: true };
+    const config = { headers: {withCredentials: true }};
 
     const { data } = await axios.get(
       `https://emgadgets-mern.onrender.com/api/v1/me`,config
