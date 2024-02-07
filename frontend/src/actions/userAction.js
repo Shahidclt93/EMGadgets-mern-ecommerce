@@ -65,6 +65,7 @@ export const register = (userData) => async (dispatch) => {
       userData
     );
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
+    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: REGISTER_USER_FAIL,
@@ -82,6 +83,7 @@ export const loadUser = () => async (dispatch) => {
     );
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
+    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
   }
