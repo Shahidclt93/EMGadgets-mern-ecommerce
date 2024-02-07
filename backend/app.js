@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middleware/error");
-const cors = require("cors");s
+const cors = require("cors");
 
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
