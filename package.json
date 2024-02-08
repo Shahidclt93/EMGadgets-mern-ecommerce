@@ -4,10 +4,9 @@
   "description": "",
   "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "dev": "node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run bulid --prefix"
+    "build": "  npm install && npm install --prefix frontend && npm run bulid --prefix frontend"
   },
   "author": "",
   "license": "ISC",
