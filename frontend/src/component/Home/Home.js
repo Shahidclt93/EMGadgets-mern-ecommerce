@@ -27,7 +27,6 @@ import {
 } from "react-icons/hi";
 
 import "swiper/css";
-
 import "swiper/css/navigation";
 
 const Home = () => {
@@ -165,16 +164,14 @@ const Home = () => {
                   <ProductCard key={product.id} product={product} />
                 ))}
           </div>
+        
           <h2 className="home-heading">CATEGORIES</h2>
-
           <section className="category">
             <div className="container">
               <ul className="category-list">
                 <li className="category-item">
                   <figure className="category-banner">
                     <img src={categoty1} alt="Headphones" />
-                  </figure>
-
                   <a
                     href=""
                     className="category-item-btn"
@@ -182,6 +179,8 @@ const Home = () => {
                   >
                     Audio and Headphones
                   </a>
+                  </figure>
+
                 </li>
 
                 <li className="category-item">

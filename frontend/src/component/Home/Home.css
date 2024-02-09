@@ -129,11 +129,13 @@
   gap: 20px;
   padding: 0 100px;
 }
+
 /* Category Cards */
 .category {
-  padding: 0 100px;
+  padding: 0 0px;
   cursor: pointer;
 }
+
 
 .category-list {
   display: flex;
@@ -157,6 +159,7 @@
   object-fit: cover;
   filter: grayscale(50%);
   transition: 0.75s ease;
+
 }
 
 .category-item:hover .category-banner img {
@@ -166,11 +169,11 @@
 
 .category-item-btn {
   position: absolute;
-  bottom: 70px;
+  top: 200px;
   left: 50%;
-  background-color: #fff;
-  color: #000;
-  font-size: 17px;
+  background-color: rgba(0, 0, 0, 0.576);
+  color: #fff;
+  font-size: 22px;
   font-weight: 600;
   padding: 8px 15px;
   transform: translateX(-50%);
@@ -178,8 +181,7 @@
   border-radius: 5px;
 }
 .category-item-btn:hover {
-  background-color: var(--green);
-  color: #fff;
+  color: var(--green-light);
 }
 /* Product Card */
 
