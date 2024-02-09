@@ -156,7 +156,7 @@ const Header = () => {
               <ul className="loggedIn-options">
                 {user.role === "admin" && (
                   <Link to="/admin/dashboard">
-                    <li className="loggedIn-option" onClick={navbarToggle}>
+                    <li className="loggedIn-option" onClick={toggleUserDropDown}>
                       <i style={{ color: "#266060" }}>
                         <DashboardIcon />
                       </i>
@@ -166,7 +166,7 @@ const Header = () => {
                 )}
 
                 <Link to="/orders">
-                  <li className="loggedIn-option" onClick={navbarToggle}>
+                  <li className="loggedIn-option" onClick={toggleUserDropDown}>
                     <i style={{ color: "#266060" }}>
                       <ListAltIcon />
                     </i>
@@ -174,7 +174,7 @@ const Header = () => {
                   </li>
                 </Link>
                 <Link to="/account">
-                  <li className="loggedIn-option" onClick={navbarToggle}>
+                  <li className="loggedIn-option" onClick={toggleUserDropDown}>
                     <i style={{ color: "#E1306C" }}>
                       <PersonIcon />
                     </i>
@@ -186,7 +186,7 @@ const Header = () => {
                   className="loggedIn-option"
                   onClick={() => {
                     logoutUser();
-                    navbarToggle();
+                    toggleUserDropDown();
                   }}
                 >
                   <i style={{ color: "#0E76A8" }}>
@@ -200,7 +200,7 @@ const Header = () => {
         </div>
         <section
           className={`navbar-overlay overlay ${navbarOpen ? "active" : ""}`}
-          onClick={navbarToggle}
+          onClick={toggleUserDropDown}
         ></section>
       </header>
       <form
