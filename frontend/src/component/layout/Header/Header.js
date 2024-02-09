@@ -25,7 +25,8 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(window.innerWidth < 890 ? true : false);
+
 
   const [keyword, setKeyword] = useState("");
   const [dropDownActive, setDropDownActive] = useState(false);
@@ -61,15 +62,17 @@ const Header = () => {
         </Link>
 
         <nav className={navbarOpen ? "navbar active" : "navbar"}>
-          <i className="navbar-closeBtn" onClick={navbarToggle}>
+          <i className="navbar-closeBtn" >
             <CloseIcon style={{ fontSize: "2rem" }} />
           </i>
           <ul className="navbar-items">
+            {isAuthenticated && 
             <Link to="/login" className="login-navbar">
-              <li className="nav-item">Create Account </li>
+              <li className="nav-item" onClick={navbarToggle}>Create Account </li>
             </Link>
+            }
             <Link to="/">
-              <li className="nav-item">
+              <li className="nav-item" onClick={navbarToggle}>
                 <a>Home</a>
               </li>
             </Link>
@@ -82,7 +85,7 @@ const Header = () => {
                 Products <ExpandMoreIcon />
               </li>
               <Link to="/products">
-                <li className="nav-item" id="products-direct">
+                <li className="nav-item" id="products-direct" onClick={navbarToggle}>
                   Products
                 </li>
               </Link>
@@ -101,17 +104,17 @@ const Header = () => {
               </li>
             </div>
             <Link to="/pages">
-              <li className="nav-item">
+              <li className="nav-item" onClick={navbarToggle}>
                 <a>Pages</a>
               </li>
             </Link>
             <Link to="/about">
-              <li className="nav-item">
+              <li className="nav-item" onClick={navbarToggle}>
                 <a>About</a>
               </li>
             </Link>
             <Link to="/contacts">
-              <li className="nav-item">
+              <li className="nav-item" onClick={navbarToggle}>
                 <a>Contact</a>
               </li>
             </Link>
@@ -200,7 +203,7 @@ const Header = () => {
         </div>
         <section
           className={`navbar-overlay overlay ${navbarOpen ? "active" : ""}`}
-          onClick={toggleUserDropDown}
+          onClick={navbarToggle}
         ></section>
       </header>
       <form

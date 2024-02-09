@@ -87,7 +87,7 @@ const Home = () => {
                   <div className="title-content">
                     <h3>Smart Living Starts Here!</h3>
                     <h3>
-                      Unlimited<span>Savings</span>{" "}
+                      Unlimited <span>Savings</span>{" "}
                     </h3>
                     <p>Redefine the way you interact with technology</p>
                     <button>Shop Now</button>
