@@ -43,23 +43,26 @@ import NotFound from "./component/layout/NotFound/NotFound";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  const auth = (element) => {
-    if (!isAuthenticated) {
-      <Navigate to={"/login"} />;
+
+const auth = (element) => {
+  if (!isAuthenticated) {
+    return <Navigate to={"/login"} />;
+  } else {
+    return element;
+  }
+};
+
+const authAdmin = (element) => {
+  if (!isAuthenticated) {
+    return <Navigate to={"/login"} />;
+  } else {
+    if (user.role !== "admin") {
+      return <Navigate to={"/account"} />;
     } else {
       return element;
     }
-  };
-
-  const authAdmin = (element) => {
-    if (isAuthenticated) {
-      if (user.role !== "admin") {
-        return <Navigate to={"/account"} />;
-      } else {
-        return element;
-      }
-    }
-  };
+  }
+};
 
   const [stripeApiKey, setStripeApiKey] = useState("");
 

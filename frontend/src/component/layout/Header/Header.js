@@ -156,7 +156,7 @@ const Header = () => {
               <ul className="loggedIn-options">
                 {user.role === "admin" && (
                   <Link to="/admin/dashboard">
-                    <li className="loggedIn-option">
+                    <li className="loggedIn-option" onClick={navbarToggle}>
                       <i style={{ color: "#266060" }}>
                         <DashboardIcon />
                       </i>
@@ -166,7 +166,7 @@ const Header = () => {
                 )}
 
                 <Link to="/orders">
-                  <li className="loggedIn-option">
+                  <li className="loggedIn-option" onClick={navbarToggle}>
                     <i style={{ color: "#266060" }}>
                       <ListAltIcon />
                     </i>
@@ -174,7 +174,7 @@ const Header = () => {
                   </li>
                 </Link>
                 <Link to="/account">
-                  <li className="loggedIn-option">
+                  <li className="loggedIn-option" onClick={navbarToggle}>
                     <i style={{ color: "#E1306C" }}>
                       <PersonIcon />
                     </i>
@@ -182,20 +182,26 @@ const Header = () => {
                   </li>
                 </Link>
 
-                <li className="loggedIn-option">
+                <li
+                  className="loggedIn-option"
+                  onClick={() => {
+                    logoutUser();
+                    navbarToggle();
+                  }}
+                >
                   <i style={{ color: "#0E76A8" }}>
                     <ExitToAppIcon />
                   </i>
-                  <span className="loggedIn-option-text" onClick={logoutUser}>
-                    LogOut
-                  </span>
+                  <span className="loggedIn-option-text">LogOut</span>
                 </li>
               </ul>
             </div>
           )}
         </div>
-      <section className={`navbar-overlay overlay ${navbarOpen ? "active" : ""}`} onClick={navbarToggle}></section>
-
+        <section
+          className={`navbar-overlay overlay ${navbarOpen ? "active" : ""}`}
+          onClick={navbarToggle}
+        ></section>
       </header>
       <form
         action=""
