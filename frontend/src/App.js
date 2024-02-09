@@ -40,6 +40,9 @@ import UsersList from "./component/Admin/UsersList";
 import UpdateUser from "./component/Admin/UpdateUser";
 import ProductReviews from "./component/Admin/ProductReviews";
 import NotFound from "./component/layout/NotFound/NotFound";
+import AboutPage from "./component/layout/Header/AboutPage";
+import ScrollToTop from "./component/layout/ScrollToTop";
+
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -95,10 +98,12 @@ const authAdmin = (element) => {
           </Routes>
         </Elements>
       )}
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/products/:keyword" element={<Products />} />
         <Route path="/login" element={<LoginSignUp />} />
         <Route path="/password/forgot" element={<ForgotPassword />} />

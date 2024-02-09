@@ -31,7 +31,7 @@ function Footer() {
               </a>
             ))}
           </div>
-          <div className="box">
+          <div className="box" id="pages">
             <h3>Quick links</h3>
             <a href="#" onClick={() => navigate("/")}>
               Home

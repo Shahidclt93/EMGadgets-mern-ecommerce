@@ -167,6 +167,7 @@
   filter: grayscale(0%);
 }
 
+
 .category-item-btn {
   position: absolute;
   top: 200px;
@@ -180,7 +181,7 @@
   width: max-content;
   border-radius: 5px;
 }
-.category-item-btn:hover {
+.category-item:hover .category-item-btn {
   color: var(--green-light);
 }
 /* Product Card */

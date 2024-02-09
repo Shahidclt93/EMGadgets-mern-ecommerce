@@ -25,8 +25,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [navbarOpen, setNavbarOpen] = useState(window.innerWidth < 890 ? true : false);
-
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   const [keyword, setKeyword] = useState("");
   const [dropDownActive, setDropDownActive] = useState(false);
@@ -43,7 +42,9 @@ const Header = () => {
   };
 
   const navbarToggle = () => {
-    setNavbarOpen(!navbarOpen);
+    if (window.innerWidth < 890) {
+      setNavbarOpen(!navbarOpen);
+    }
   };
   function logoutUser() {
     dispatch(logout());
@@ -62,15 +63,17 @@ const Header = () => {
         </Link>
 
         <nav className={navbarOpen ? "navbar active" : "navbar"}>
-          <i className="navbar-closeBtn" >
+          <i className="navbar-closeBtn">
             <CloseIcon style={{ fontSize: "2rem" }} />
           </i>
           <ul className="navbar-items">
-            {isAuthenticated && 
-            <Link to="/login" className="login-navbar">
-              <li className="nav-item" onClick={navbarToggle}>Create Account </li>
-            </Link>
-            }
+            {isAuthenticated && (
+              <Link to="/login" className="login-navbar">
+                <li className="nav-item" onClick={navbarToggle}>
+                  Create Account{" "}
+                </li>
+              </Link>
+            )}
             <Link to="/">
               <li className="nav-item" onClick={navbarToggle}>
                 <a>Home</a>
@@ -85,7 +88,11 @@ const Header = () => {
                 Products <ExpandMoreIcon />
               </li>
               <Link to="/products">
-                <li className="nav-item" id="products-direct" onClick={navbarToggle}>
+                <li
+                  className="nav-item"
+                  id="products-direct"
+                  onClick={navbarToggle}
+                >
                   Products
                 </li>
               </Link>
@@ -103,21 +110,17 @@ const Header = () => {
                 </ul>
               </li>
             </div>
-            <Link to="/pages">
               <li className="nav-item" onClick={navbarToggle}>
-                <a>Pages</a>
+              <a  style={{ color:"inherit"}} href="#pages">Pages</a> 
               </li>
-            </Link>
             <Link to="/about">
               <li className="nav-item" onClick={navbarToggle}>
-                <a>About</a>
+                About
               </li>
             </Link>
-            <Link to="/contacts">
               <li className="nav-item" onClick={navbarToggle}>
-                <a>Contact</a>
+               <a  style={{ color:"inherit"}} href="#contact">Contact</a> 
               </li>
-            </Link>
           </ul>
         </nav>
         <div className="header-icons">
@@ -159,7 +162,10 @@ const Header = () => {
               <ul className="loggedIn-options">
                 {user.role === "admin" && (
                   <Link to="/admin/dashboard">
-                    <li className="loggedIn-option" onClick={toggleUserDropDown}>
+                    <li
+                      className="loggedIn-option"
+                      onClick={toggleUserDropDown}
+                    >
                       <i style={{ color: "#266060" }}>
                         <DashboardIcon />
                       </i>

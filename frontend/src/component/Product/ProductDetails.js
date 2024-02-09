@@ -11,7 +11,6 @@ import Loader from "../layout/Loader/Loader";
 import ReviewCard from "./ReviewCard";
 import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
-import ScrollToTop from "../layout/ScrollToTop";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { addItemsToCart } from "../../actions/cartAction";
@@ -126,7 +125,6 @@ const ProductDetails = () => {
       ) : (
         <Fragment>
           <MetaData title={`${product.name} --- EMGadget`} />
-          <ScrollToTop />
           <span
             className={isActiveReview ? "overlay-review" : ""}
             onClick={toggleReviewModal}

@@ -5,10 +5,9 @@ import MetaData from "../layout/MetaData";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-import ScrollToTop from "../layout/ScrollToTop";
 import slider1 from "../../images/slider-1.png";
 import slider2 from "../../images/slider-2.png";
 import serviceIcon1 from "../../images/service-icon-1.svg";
@@ -49,7 +48,6 @@ const Home = () => {
       ) : (
         <Fragment>
           <MetaData title="EMgadgets" />
-          <ScrollToTop />
 
           <div class="swiper-container">
             <Swiper
@@ -164,65 +162,60 @@ const Home = () => {
                   <ProductCard key={product.id} product={product} />
                 ))}
           </div>
-        
+
           <h2 className="home-heading">CATEGORIES</h2>
           <section className="category">
             <div className="container">
               <ul className="category-list">
-                <li className="category-item">
+                <li
+                  className="category-item"
+                  onClick={() => navigate("/products/&category=Headphones")}
+                >
                   <figure className="category-banner">
                     <img src={categoty1} alt="Headphones" />
-                  <a
-                    href=""
-                    className="category-item-btn"
-                    onClick={() => navigate("/products/&category=Headphones")}
-                  >
-                    Audio and Headphones
-                  </a>
+                    <a href="" className="category-item-btn">
+                      Audio and Headphones
+                    </a>
                   </figure>
-
                 </li>
 
-                <li className="category-item">
+                <li
+                  className="category-item"
+                  onClick={() => navigate("/products/&category=Watches")}
+                >
                   <figure className="category-banner">
                     <img src={categoty2} alt="Wearables" />
                   </figure>
 
-                  <a
-                    href=""
-                    className="category-item-btn"
-                    onClick={() => navigate("/products/&category=Watches")}
-                  >
+                  <a href="" className="category-item-btn">
                     Wearables
                   </a>
                 </li>
 
-                <li className="category-item">
+                <li
+                  className="category-item"
+                  onClick={() =>
+                    navigate("/products/&category=Mobile%Accessories")
+                  }
+                >
                   <figure className="category-banner">
                     <img src={categoty3} alt="Mobile Accessories" />
                   </figure>
 
-                  <a
-                    href=""
-                    className="category-item-btn"
-                    onClick={() =>
-                      navigate("/products/&category=Mobile%Accessories")
-                    }
-                  >
+                  <a href="" className="category-item-btn">
                     Mobile Accessories
                   </a>
                 </li>
 
                 <li className="category-item">
-                  <figure className="category-banner">
+                  <figure
+                    className="category-banner"
+                    onClick={() => navigate("/products/&category=Gadgets")}
+                  >
                     <img src={categoty4} alt="Productivity Gadgets" />
                   </figure>
 
-                  <a
-                    href=""
-                    className="category-item-btn"
-                    onClick={() => navigate("/products/&category=Gadgets")}
-                  >
+                  <a href="" className="category-item-btn">
                     Productivity Gadgets
                   </a>
                 </li>
