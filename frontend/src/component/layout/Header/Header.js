@@ -64,10 +64,10 @@ const Header = () => {
 
         <nav className={navbarOpen ? "navbar active" : "navbar"}>
           <i className="navbar-closeBtn">
-            <CloseIcon style={{ fontSize: "2rem" }} />
+            <CloseIcon style={{ fontSize: "2rem" }} onClick={navbarToggle}/>
           </i>
           <ul className="navbar-items">
-            {isAuthenticated && (
+            {!isAuthenticated && (
               <Link to="/login" className="login-navbar">
                 <li className="nav-item" onClick={navbarToggle}>
                   Create Account{" "}
