@@ -1,6 +1,12 @@
 .register {
   height: 120vh;
 }
+.register .input-field input[type="password"]{
+  font-family: sans-serif;
+}
+.register .input-field input[type="password"]::placeholder{
+  font-family: Kumbh Sans;
+}
 .sign-in-up {
   display: flex;
   align-items: flex-start;
@@ -151,6 +157,7 @@
 .form .button {
   margin-top: 35px;
 }
+
 .form .button input {
   border: none;
   color: #fff;

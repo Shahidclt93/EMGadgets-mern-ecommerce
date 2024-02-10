@@ -105,7 +105,6 @@ function LoginSignUp() {
                     <div className="input-field">
                       <input
                         type={loginPasswordVisible ? "text" : "password"}
-                        className="password"
                         placeholder="Enter your password"
                         required
                         value={loginPassword}
@@ -194,7 +193,6 @@ function LoginSignUp() {
                     <div className="input-field">
                       <input
                         type={passwordVisible ? "text" : "password"}
-                        className="password"
                         placeholder="Create a password"
                         required
                         name="password"
@@ -221,7 +219,6 @@ function LoginSignUp() {
                     <div className="input-field">
                       <input
                         type={confirmPasswordVisible ? "text" : "password"}
-                        className="password"
                         placeholder="Confirm password"
                         required
                         name="confirmPassword"
