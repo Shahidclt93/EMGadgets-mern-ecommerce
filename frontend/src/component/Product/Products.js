@@ -24,8 +24,6 @@ const Products = () => {
   const [category, setCategory] = useState("");
 
   const [ratings, setRatings] = useState(0);
-  const [filterApplied, setFilterApplied] = useState(false);
-
   const [filterBarActive, setFilterActive] = useState(false);
 
   const filterBarToggle = () => {
@@ -39,32 +37,35 @@ const Products = () => {
     resultPerPage,
     filteredProductsCount,
   } = useSelector((state) => state.products);
+
   let count = filteredProductsCount;
 
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
-  const priceHandler = (event, newPrice) => {
-    setPrice(newPrice);
+  // const priceHandler = (event, newPrice) => {
+  //   setPrice(newPrice);
+  // };
+  const handleGoButtonClick = () => {
+    dispatch(getProduct(keyword, currentPage, price, category, ratings));
   };
-
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
 
-    dispatch(getProduct(keyword, currentPage, price, category, ratings));
+    // dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [
     dispatch,
-    keyword,
-    currentPage,
-    category,
-    price,
-    ratings,
-    toast,
-    error,
-    filterApplied,
+    // keyword,
+    // currentPage,
+    // category,
+    // price,
+    // ratings,
+    // toast,
+    // error,
+    // filterApplied,
   ]);
 
   return (
@@ -89,7 +90,8 @@ const Products = () => {
               <Typography>Price</Typography>
               <Slider
                 value={price}
-                onChange={priceHandler}
+                onChange={(event, newPrice) => {
+                  setPrice(newPrice)}}
                 valueLabelDisplay="auto"
                 aria-labelledby="range-slider"
                 min={0}
@@ -121,7 +123,7 @@ const Products = () => {
                   max={5}
                 />
               </fieldset>
-              <button className="go-button">GO</button>
+              <button className="go-button" onClick={handleGoButtonClick} >GO</button>
             </div>
             <div className="products-container">
               <div className="products-grid">

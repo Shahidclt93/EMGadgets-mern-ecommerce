@@ -7,7 +7,7 @@ import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
 import { toast } from "react-toastify";
-import MenuIcon from "@mui/icons-material/Menu";
+import { CgMenuLeft } from "react-icons/cg";
 import PersonIcon from "@mui/icons-material/Person";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -50,13 +50,13 @@ const Header = () => {
     dispatch(logout());
     toast.success("logout successfully");
   }
-  const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
+  const categories = ["Smartphones", "Headphones", "Watches", "Gadgets"];
 
   return (
     <Fragment>
       <header className="header">
         <i id="menu-btn" onClick={navbarToggle}>
-          <MenuIcon style={{ fontSize: "40px", height: "70px" }} />
+          <CgMenuLeft style={{ fontSize: "30px",color:"#000"}} />
         </i>
         <Link to="/">
           <img className="logo" src={emgadgetLogo} />
@@ -83,7 +83,7 @@ const Header = () => {
               <li
                 className="nav-item"
                 id="products-dropdown"
-                onClick={() => navigate("/products")}
+              
               >
                 Products <ExpandMoreIcon />
               </li>

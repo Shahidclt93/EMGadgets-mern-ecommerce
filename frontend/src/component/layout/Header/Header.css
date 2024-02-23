@@ -102,12 +102,13 @@
   position: absolute;
   display: none;
   padding-top: 15px;
-  top: 25px;
+  top: 22px;
   right: 0px;
   background-color: #fff;
   box-shadow: var(--box-shadow);
 
 }
+
 .nav-dropdown:hover .products-dropdown {
   display: block;
 }
@@ -115,7 +116,7 @@
 .products-dropdown li {
   font-size: 12px;
   font-weight: 600;
-  padding: 8px;
+  padding: 12px 20px;
   cursor: pointer;
 }
 
@@ -133,17 +134,15 @@
   right: 0;
   width: 50%;
   height: 40px;
-  border: 1px solid #ddd;
   border-radius: 5px;
   transition: top 0.2s ease-in-out;
   z-index: 9;
-  box-shadow: var(--box-shadow);
 }
 .search-form.active {
   top: calc(101px);
 }
 .search-form svg {
-  font-size: 29px;
+  font-size: 20px;
 }
 .search-form input {
   height: 100%;
@@ -151,21 +150,21 @@
   font-size: 16px;
   color: black;
   padding: 0 24px;
-  width: 100%;
-  border-top-left-radius: 0.2rem;
-  border-bottom-left-radius: 0.2rem;
+  width: 90%;
+  box-shadow: var(--box-shadow);
+  border: 1px solid #ddd;
+
+  border-radius: 0.2rem;
+ 
 }
 .search-form button {
   position: absolute;
-  top: -1px;
-  right: 0;
-  height: 40px;
-  width: 80px;
-  font-size: 20px;
+  top: 5px;
+  right: 20px;
+  padding: 4px 30px;
   color: #ddd;
   cursor: pointer;
-  border-top-right-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem;
+
   background-color: var(--green);
 }
 .search-form button:hover {
@@ -277,7 +276,7 @@
   .navbar-closeBtn {
     position: absolute;
     display: block;
-    color: var(--green);
+    color: #333;
     right: 15px;
     top: 25px;
     cursor: pointer;
@@ -321,7 +320,8 @@
     margin-left: -150px;
     margin-top: -20px;
     border: 1px solid var(--green);
-    padding: 2px 5px;
+    font-weight: 700;
+    padding: 8px 10px;
     width: fit-content;
   }
   .navbar .login-navbar{

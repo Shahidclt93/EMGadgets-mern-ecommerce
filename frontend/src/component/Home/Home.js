@@ -8,22 +8,23 @@ import Loader from "../layout/Loader/Loader";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-import slider1 from "../../images/slider-1.png";
-import slider2 from "../../images/slider-2.png";
+import slider1 from "../../images/hero-banner-1.png";
+import slider2 from "../../images/hero-banner-2.png";
+import slider3 from "../../images/hero-banner-3.png";
 import serviceIcon1 from "../../images/service-icon-1.svg";
 import serviceIcon2 from "../../images/service-icon-2.svg";
 import serviceIcon3 from "../../images/service-icon-3.svg";
 import serviceIcon4 from "../../images/service-icon-4.svg";
-import categoty1 from "../../images/category-1.jpg";
-import categoty2 from "../../images/category-2.jpg";
-import categoty3 from "../../images/category-3.jpg";
-import categoty4 from "../../images/category-4.jpg";
+import category1 from "../../images/category-1.png";
+import category2 from "../../images/category-2.png";
+import category3 from "../../images/category-3.png";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import {
   HiOutlineArrowNarrowRight,
   HiOutlineArrowNarrowLeft,
 } from "react-icons/hi";
+import { FaArrowRight } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -49,58 +50,102 @@ const Home = () => {
         <Fragment>
           <MetaData title="EMgadgets" />
 
-          <div class="swiper-container">
+          <section class="swiper-container">
             <Swiper
               spaceBetween={50}
               slidesPerView={1}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
               navigation={{
                 nextEl: ".btn-next-slide",
                 prevEl: ".btn-prev-slide",
               }}
-              modules={[Navigation]}
-              // onSlideChange={() => console.log("slide change")}
-              // onSwiper={(swiper) => console.log(swiper)}
+              modules={[Autoplay, Pagination, Navigation]}
             >
               <SwiperSlide>
-                <div className="banner-image ">
-                  <img src={slider1} />
+                <div
+                  className="banner-image"
+                  style={{ backgroundImage: `url(${slider1})` }}
+                >
                   <div className="title-content">
-                    <h3>Hot Deals!</h3>
-                    <h3>
-                      Unbeatable <span>Prices</span>{" "}
-                    </h3>
-                    <p>
-                      Dive into a world of innovation and savings! Discover the
-                      latest Gadgets
+                    <h1 class="h1 hero-title">
+                      Upgrade Your <br />
+                      Gear with a Click
+                    </h1>
+
+                    <p class="hero-text">
+                      Infused with unbeatable resale value,
+                      <br /> reimagine your revenue possibilities.
                     </p>
-                    <button>Shop Now</button>
+
+                    <p class="price">Starting at ₹10000</p>
+
+                    <a href="#" class="btn-hero">
+                      Shop Now
+                    </a>
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                {" "}
-                <div className="banner-image">
-                  <img src={slider2} />
+                <div
+                  className="banner-image"
+                  style={{ backgroundImage: `url(${slider2})` }}
+                >
                   <div className="title-content">
-                    <h3>Smart Living Starts Here!</h3>
-                    <h3>
-                      Unlimited <span>Savings</span>{" "}
-                    </h3>
-                    <p>Redefine the way you interact with technology</p>
-                    <button>Shop Now</button>
+                    <h1 class="h1 hero-title">
+                      Power Up Your <br />
+                      Lifestyle Today
+                    </h1>
+
+                    <p class="hero-text">
+                      Our offers enhance your inventory turnover.
+                      <br /> our exclusive deals redefine profit margins.
+                    </p>
+
+                    <p class="price">Starting at ₹999</p>
+
+                    <a href="#" class="btn-hero">
+                      Shop Now
+                    </a>
                   </div>
                 </div>
               </SwiperSlide>
+              <SwiperSlide>
+                <div
+                  className="banner-image"
+                  style={{ backgroundImage: `url(${slider3})` }}
+                >
+                  <div className="title-content">
+                    <h1 class="h1 hero-title">
+                      Discover <br />
+                      with unbeatable prices
+                    </h1>
 
+                    <p class="hero-text">
+                      Our discounts blend profit with quality.
+                      <br /> Infused with unbeatable resale value.
+                    </p>
+                    <p class="price">Starting at ₹999</p>
+
+                    <a href="#" class="btn-hero">
+                      Shop Now
+                    </a>
+                  </div>
+                </div>
+              </SwiperSlide>
               <div className="btn-slide btn-next-slide">
                 <HiOutlineArrowNarrowRight />
               </div>
-
               <div className="btn-slide btn-prev-slide">
                 <HiOutlineArrowNarrowLeft />
               </div>
             </Swiper>
-          </div>
+          </section>
           <section className="service">
             <div className="container">
               <ul className="service-list">
@@ -167,57 +212,50 @@ const Home = () => {
           <section className="category">
             <div className="container">
               <ul className="category-list">
-                <li
-                  className="category-item"
-                  onClick={() => navigate("/products/&category=Headphones")}
-                >
-                  <figure className="category-banner">
-                    <img src={categoty1} alt="Headphones" />
-                    <a href="" className="category-item-btn">
-                      Audio and Headphones
-                    </a>
-                  </figure>
-                </li>
-
-                <li
-                  className="category-item"
-                  onClick={() => navigate("/products/&category=Watches")}
-                >
-                  <figure className="category-banner">
-                    <img src={categoty2} alt="Wearables" />
-                  </figure>
-
-                  <a href="" className="category-item-btn">
-                    Wearables
-                  </a>
-                </li>
-
-                <li
-                  className="category-item"
-                  onClick={() =>
-                    navigate("/products/&category=Mobile%Accessories")
-                  }
-                >
-                  <figure className="category-banner">
-                    <img src={categoty3} alt="Mobile Accessories" />
-                  </figure>
-
-                  <a href="" className="category-item-btn">
-                    Mobile Accessories
-                  </a>
-                </li>
-
                 <li className="category-item">
-                  <figure
-                    className="category-banner"
-                    onClick={() => navigate("/products/&category=Gadgets")}
+                  <h2>Speakers</h2>
+                  <p>Starting at ₹999</p>
+                  <a
+                    href=""
+                    className="btn-link"
+                    onClick={() => navigate("/products/&category=gadgets")}
                   >
-                    <img src={categoty4} alt="Productivity Gadgets" />
-                  </figure>
-
-                  <a href="" className="category-item-btn">
-                    Productivity Gadgets
+                    Shop Now <FaArrowRight />
                   </a>
+                  <div
+                    className="category-bg-image"
+                    style={{ backgroundImage: `url(${category1})` }}
+                  ></div>
+                </li>
+                <li className="category-item">
+                  <h2>Smart Watches</h2>
+                  <p>Get it now! </p>
+                  <a
+                    href=""
+                    className="btn-link"
+                    onClick={() => navigate("/products/&category=watches")}
+                  >
+                    Shop Now <FaArrowRight />
+                  </a>
+                  <div
+                    className="category-bg-image"
+                    style={{ backgroundImage: `url(${category2})` }}
+                  ></div>
+                </li>
+                <li className="category-item">
+                  <h2>Headphones</h2>
+                  <p>Starting at ₹1200</p>
+                  <a
+                    href=""
+                    className="btn-link"
+                    onClick={() => navigate("/products/&category=Headphones")}
+                  >
+                    Shop Now <FaArrowRight />
+                  </a>
+                  <div
+                    className="category-bg-image"
+                    style={{ backgroundImage: `url(${category3})` }}
+                  ></div>
                 </li>
               </ul>
             </div>
@@ -233,6 +271,29 @@ const Home = () => {
                 .map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
+          </section>
+
+          <section className="banner-bottom">
+            <div className="banner-1 banner-info">
+              <p>New Collection</p>
+
+              <h2 className="h2">Discover Our Autumn <br/>Skincare</h2>
+
+              <a href="#" className="btn-hero">
+                Explore More
+              </a>
+            </div>
+            <div className="banner-2 banner-info">
+              <h2 className="h2">25% off Everything</h2>
+
+              <p>
+                Makeup with extended range in colors <br/> for every human.
+              </p>
+
+              <a href="#" className="btn-hero">
+                Shop Sale
+              </a>
+            </div>
           </section>
         </Fragment>
       )}

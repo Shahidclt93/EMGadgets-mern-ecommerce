@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import Header from "./component/layout/Header/Header";
 import Footer from "./component/layout/Footer/Footer";
 import {
@@ -41,31 +40,29 @@ import UpdateUser from "./component/Admin/UpdateUser";
 import ProductReviews from "./component/Admin/ProductReviews";
 import NotFound from "./component/layout/NotFound/NotFound";
 import AboutPage from "./component/layout/Header/AboutPage";
-import ScrollToTop from "./component/layout/ScrollToTop";
-
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
-const auth = (element) => {
-  if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
-  } else {
-    return element;
-  }
-};
-
-const authAdmin = (element) => {
-  if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
-  } else {
-    if (user.role !== "admin") {
-      return <Navigate to={"/account"} />;
+  const auth = (element) => {
+    if (!isAuthenticated) {
+      return <Navigate to={"/login"} />;
     } else {
       return element;
     }
-  }
-};
+  };
+
+  const authAdmin = (element) => {
+    if (!isAuthenticated) {
+      return <Navigate to={"/login"} />;
+    } else {
+      if (user.role !== "admin") {
+        return <Navigate to={"/account"} />;
+      } else {
+        return element;
+      }
+    }
+  };
 
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -77,7 +74,11 @@ const authAdmin = (element) => {
   React.useEffect(() => {
     WebFont.load({
       google: {
-        families: ["Roboto:300,400,500", "Kumbh Sans:200,300,400,500,600"],
+        families: [
+          "Roboto:300,400,500",
+          "Kumbh Sans:200,300,400,500,600",
+          "Urbanist:200,300,400,500,600",
+        ],
       },
     });
     store.dispatch(loadUser());
@@ -98,7 +99,6 @@ const authAdmin = (element) => {
           </Routes>
         </Elements>
       )}
-      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
@@ -121,11 +121,11 @@ const authAdmin = (element) => {
         <Route path="/admin/dashboard" element={authAdmin(<Dashboard />)} />
         <Route path="/admin/products" element={authAdmin(<ProductList />)} />
         <Route path="/admin/product" element={authAdmin(<NewProduct />)} />
-       
+
         <Route
           path="/admin/product/:id"
-          element={authAdmin( <UpdateProduct />)}
-        /> 
+          element={authAdmin(<UpdateProduct />)}
+        />
         <Route path="/admin/orders" element={authAdmin(<OrderList />)} />
         <Route path="/admin/order/:id" element={authAdmin(<ProcessOrder />)} />
         <Route path="/admin/users" element={authAdmin(<UsersList />)} />
