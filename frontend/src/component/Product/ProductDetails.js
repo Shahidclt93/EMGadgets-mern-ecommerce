@@ -16,6 +16,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { addItemsToCart } from "../../actions/cartAction";
 import Rating from "@mui/material/Rating";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import ScrollToTop from "../layout/ScrollToTop"
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -125,6 +126,7 @@ const ProductDetails = () => {
       ) : (
         <Fragment>
           <MetaData title={`${product.name} --- EMGadget`} />
+          <ScrollToTop/>
           <span
             className={isActiveReview ? "overlay-review" : ""}
             onClick={toggleReviewModal}

@@ -5,9 +5,9 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const errorMiddleware = require("./middleware/error");
 const path = require("path");
-const job = require("~/job.js");
-job.start();
+const job = require("./job");
 
+app.use(job);
 app.use(express.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));

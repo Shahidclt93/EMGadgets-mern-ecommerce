@@ -28,6 +28,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import ScrollToTop from "../layout/ScrollToTop"
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const Home = () => {
       ) : (
         <Fragment>
           <MetaData title="EMgadgets" />
-
+            <ScrollToTop/>
           <section class="swiper-container">
             <Swiper
               spaceBetween={50}
