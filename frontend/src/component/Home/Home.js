@@ -219,7 +219,7 @@ const Home = () => {
                   <a
                     href=""
                     className="btn-link"
-                    onClick={() => navigate("/products/&category=gadgets")}
+                    onClick={() => navigate("/products/&category=Gadgets")}
                   >
                     Shop Now <FaArrowRight />
                   </a>
@@ -234,7 +234,7 @@ const Home = () => {
                   <a
                     href=""
                     className="btn-link"
-                    onClick={() => navigate("/products/&category=watches")}
+                    onClick={() => navigate("/products/&category=Watches")}
                   >
                     Shop Now <FaArrowRight />
                   </a>

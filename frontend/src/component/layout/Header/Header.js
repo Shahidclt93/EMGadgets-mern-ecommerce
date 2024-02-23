@@ -27,7 +27,6 @@ const Header = () => {
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
-
   const [keyword, setKeyword] = useState("");
   const [dropDownActive, setDropDownActive] = useState(false);
   const toggleUserDropDown = () => {
@@ -41,6 +40,7 @@ const Header = () => {
       navigate("/products");
     }
   };
+
 
   const navbarToggle = () => {
     if (window.innerWidth < 890) {
