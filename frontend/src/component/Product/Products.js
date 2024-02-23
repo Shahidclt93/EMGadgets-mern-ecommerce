@@ -22,7 +22,6 @@ const Products = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 25000]);
   const [category, setCategory] = useState("");
-
   const [ratings, setRatings] = useState(0);
   const [filterBarActive, setFilterActive] = useState(false);
 
@@ -43,29 +42,26 @@ const Products = () => {
   const setCurrentPageNo = (e) => {
     setCurrentPage(e);
   };
-  // const priceHandler = (event, newPrice) => {
-  //   setPrice(newPrice);
-  // };
+  
   const handleGoButtonClick = () => {
-    dispatch(getProduct(keyword, currentPage, price, category, ratings));
+    dispatch(getProduct(  price, ratings));
   };
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-
+dispatch(getProduct(category,keyword,currentPage,))
     // dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [
     dispatch,
-    // keyword,
-    // currentPage,
-    // category,
+    keyword,
+    currentPage,
+    category,
     // price,
     // ratings,
-    // toast,
-    // error,
-    // filterApplied,
+    toast,
+    error,
   ]);
 
   return (

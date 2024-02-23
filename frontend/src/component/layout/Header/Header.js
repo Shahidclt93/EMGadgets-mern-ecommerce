@@ -18,6 +18,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+
 const Header = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { cartItems } = useSelector((state) => state.cart);
@@ -33,7 +34,7 @@ const Header = () => {
     setDropDownActive(!dropDownActive);
   };
   const searchSubmitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (keyword.trim()) {
       navigate(`/products/${keyword}`);
     } else {
@@ -50,13 +51,14 @@ const Header = () => {
     dispatch(logout());
     toast.success("logout successfully");
   }
+
   const categories = ["Smartphones", "Headphones", "Watches", "Gadgets"];
 
   return (
     <Fragment>
       <header className="header">
         <i id="menu-btn" onClick={navbarToggle}>
-          <CgMenuLeft style={{ fontSize: "30px",color:"#000"}} />
+          <CgMenuLeft style={{ fontSize: "30px", color: "#000" }} />
         </i>
         <Link to="/">
           <img className="logo" src={emgadgetLogo} />
@@ -64,7 +66,7 @@ const Header = () => {
 
         <nav className={navbarOpen ? "navbar active" : "navbar"}>
           <i className="navbar-closeBtn">
-            <CloseIcon style={{ fontSize: "2rem" }} onClick={navbarToggle}/>
+            <CloseIcon style={{ fontSize: "2rem" }} onClick={navbarToggle} />
           </i>
           <ul className="navbar-items">
             {!isAuthenticated && (
@@ -80,13 +82,11 @@ const Header = () => {
               </li>
             </Link>
             <div className="nav-dropdown">
-              <li
-                className="nav-item"
-                id="products-dropdown"
-              
-              >
+              <Link to="/products">
+              <li className="nav-item" id="products-dropdown">
                 Products <ExpandMoreIcon />
               </li>
+              </Link>
               <Link to="/products">
                 <li
                   className="nav-item"
@@ -110,17 +110,21 @@ const Header = () => {
                 </ul>
               </li>
             </div>
-              <li className="nav-item" onClick={navbarToggle}>
-              <a  style={{ color:"inherit"}} href="#pages">Pages</a> 
-              </li>
+            <li className="nav-item" onClick={navbarToggle}>
+              <a style={{ color: "inherit" }} href="#pages">
+                Pages
+              </a>
+            </li>
             <Link to="/about">
               <li className="nav-item" onClick={navbarToggle}>
                 About
               </li>
             </Link>
-              <li className="nav-item" onClick={navbarToggle}>
-               <a  style={{ color:"inherit"}} href="#contact">Contact</a> 
-              </li>
+            <li className="nav-item" onClick={navbarToggle}>
+              <a style={{ color: "inherit" }} href="#contact">
+                Contact
+              </a>
+            </li>
           </ul>
         </nav>
         <div className="header-icons">
