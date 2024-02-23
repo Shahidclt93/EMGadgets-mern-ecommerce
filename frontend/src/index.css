@@ -8,6 +8,9 @@
  
 
 }
+html{
+  scroll-behavior: smooth;
+}
 :root{
   --footer-blue:#212934;
   --footer-grey:#dcdde1;

@@ -239,7 +239,7 @@
 
 .about {
   margin-top: 8rem;
-  padding: 0 50px;
+  padding: 0 20%;
   text-align: center;
 }
 .about ul {
@@ -341,5 +341,8 @@
   .loggedIn-select-menu {
     margin-left: 5px;
     width: 95px;
+  }
+  .about {
+    padding: 0 10%;
   }
 }
