@@ -40,7 +40,6 @@
   margin: 0 2rem;
 }
 .dashboardSummaryBox2 > a {
-  color: rgb(0, 0, 0);
   font: 300 1.5rem "Roboto";
   text-align: center;
   background-color: var(--green);

@@ -191,7 +191,9 @@
   justify-content: space-between;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-left: 10px;
+  margin-bottom: 3px;
   width: 50px;
+
 }
 
 .loggedIn-select-menu.active .loggedIn-select-btn i {
@@ -339,7 +341,6 @@
 @media screen and (max-width: 420px) {
   .loggedIn-select-menu {
     margin-left: 5px;
-    width: 95px;
   }
   .about {
     padding: 0 10%;

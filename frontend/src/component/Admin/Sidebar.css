@@ -103,7 +103,7 @@
 .sidebar-close-btn {
   position: absolute;
   top: 30px;
-  left: 10px;
+  right: 0;
   color: #000;
   cursor: pointer;
   display: none;

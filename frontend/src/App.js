@@ -76,8 +76,7 @@ function App() {
       google: {
         families: [
           "Roboto:300,400,500",
-          "Kumbh Sans:200,300,400,500,600",
-          "Urbanist:200,300,400,500,600",
+          "Kumbh Sans:200,300,400,500,600"
         ],
       },
     });

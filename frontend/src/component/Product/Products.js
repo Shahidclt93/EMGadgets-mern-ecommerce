@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import MetaData from "../layout/MetaData";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import CloseIcon from "@mui/icons-material/Close";
+import ScrollToTop from "../layout/ScrollToTop"
 
 const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
 
@@ -67,6 +68,7 @@ const Products = () => {
       ) : (
         <Fragment>
           <MetaData title="PRODUCTS --- EmGadgets" />
+          <ScrollToTop/>
           <h2 className="products-heading">Products</h2>
           <div className="products-section">
             <i className="filter-icon" onClick={filterBarToggle}>
