@@ -30,7 +30,7 @@ const NewProduct = () => {
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
-  const categories = ["Headphones", "Watches", "Gadgets", "Mobile Accessories"];
+  const categories = ["Smartphones","Headphones", "Watches", "Gadgets", "Mobile Accessories"];
 
   useEffect(() => {
     if (error) {
