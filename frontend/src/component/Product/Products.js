@@ -43,23 +43,19 @@ const Products = () => {
     setCurrentPage(e);
   };
   
-  const handleGoButtonClick = () => {
-    dispatch(getProduct(  price, ratings));
-  };
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-dispatch(getProduct(category,keyword,currentPage,))
-    // dispatch(getProduct(keyword, currentPage, price, category, ratings));
+    dispatch(getProduct(keyword, currentPage, price, category, ratings));
   }, [
     dispatch,
     keyword,
     currentPage,
     category,
-    // price,
-    // ratings,
+    price,
+    ratings,
     toast,
     error,
   ]);
@@ -119,7 +115,6 @@ dispatch(getProduct(category,keyword,currentPage,))
                   max={5}
                 />
               </fieldset>
-              <button className="go-button" onClick={handleGoButtonClick} >GO</button>
             </div>
             <div className="products-container">
               <div className="products-grid">
