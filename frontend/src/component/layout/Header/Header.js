@@ -156,9 +156,6 @@ const Header = () => {
             >
               <div className="loggedIn-select-btn" onClick={toggleUserDropDown}>
                 <AccountCircleSharpIcon />
-                <span className="sBtn-text">
-                  {isAuthenticated && user.role === "user" ? "User" : "Admin"}
-                </span>
                 <i className="arrow-down">
                   <KeyboardArrowDownIcon />
                 </i>
